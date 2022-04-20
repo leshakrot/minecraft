@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15,14 +16,20 @@ MonoBehaviour:
   renderType: 0
   overrideMaterial: 0
   texturesByMaterial: 0
+  texturesCustomPacking: 0
+  texturesPackingSize: 256
+  texturesPackingScale: 1
+  texturesPackingNormalMap: 0
+  texturesPackingReliefMap: 0
+  worldSpaceUVs: 0
   overrideMaterialNonGeo: {fileID: 0}
   hasContent: 1
   opaque: 0
-  textureTop: {fileID: 2800000, guid: 54a50d8fe253c47bdbc1f18547d77e59, type: 3}
+  textureTop: {fileID: 2800000, guid: 759cbaa33efce464295a335e2d0bb5ca, type: 3}
   textureTopEmission: {fileID: 0}
   textureTopNRM: {fileID: 0}
   textureTopDISP: {fileID: 0}
-  textureSide: {fileID: 2800000, guid: 54a50d8fe253c47bdbc1f18547d77e59, type: 3}
+  textureSide: {fileID: 2800000, guid: 4bc809000e0780d4da24523424d4e27d, type: 3}
   textureSideEmission: {fileID: 0}
   textureSideNRM: {fileID: 0}
   textureSideDISP: {fileID: 0}
@@ -38,7 +45,7 @@ MonoBehaviour:
   textureLeftEmission: {fileID: 0}
   textureLeftNRM: {fileID: 0}
   textureLeftDISP: {fileID: 0}
-  textureBottom: {fileID: 2800000, guid: 54a50d8fe253c47bdbc1f18547d77e59, type: 3}
+  textureBottom: {fileID: 2800000, guid: e204dd085d3e59a41aa3d82f01400c02, type: 3}
   textureBottomEmission: {fileID: 0}
   textureBottomNRM: {fileID: 0}
   textureBottomDISP: {fileID: 0}
@@ -54,10 +61,9 @@ MonoBehaviour:
   buildSound: {fileID: 8300000, guid: 3a395af208d574a28bcca472e43a8ae0, type: 3}
   footfalls:
   - {fileID: 8300000, guid: 510d5aa52647b45b5801a9be24883eed, type: 3}
-  - {fileID: 8300000, guid: cc1bde0c61545400390938e2dfcbbca8, type: 3}
   jumpSound: {fileID: 8300000, guid: 4ae12959a77e4427b9d8ea45d19a81d8, type: 3}
   landingSound: {fileID: 8300000, guid: 510d5aa52647b45b5801a9be24883eed, type: 3}
-  impactSound: {fileID: 8300000, guid: e10b0db582560492db680fecf1eaa307, type: 3}
+  impactSound: {fileID: 8300000, guid: 752e6297b7e3c4ff58a7f8f09a6dd124, type: 3}
   destructionSound: {fileID: 8300000, guid: 4046885cae94341dfbaf679ce4a92ccc, type: 3}
   resistancePoints: 5
   hidden: 0
@@ -66,7 +72,7 @@ MonoBehaviour:
   dropItemLifeTime: 10
   dropItemScale: 0.25
   icon: {fileID: 0}
-  textureSample: {fileID: 2800000, guid: 54a50d8fe253c47bdbc1f18547d77e59, type: 3}
+  textureSample: {fileID: 2800000, guid: d06495e0aa47a435db0d05296d09190a, type: 3}
   navigatable: 1
   windAnimation: 1
   model: {fileID: 0}
@@ -103,4 +109,4 @@ MonoBehaviour:
   showFoam: 1
   seeThroughMode: 1
   seeThroughVoxel: {fileID: 0}
-  biomeDirtCounterpart: {fileID: 0}
+  biomeDirtCounterpart: {fileID: 11400000, guid: 0b48ff36c991c4804aa548bbb19458d0, type: 2}

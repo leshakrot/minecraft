@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u041B\u0451\u0434"
   m_EditorClassIdentifier: 
   title: 
-  renderType: 0
+  renderType: 7
   overrideMaterial: 0
   texturesByMaterial: 0
   texturesCustomPacking: 0
@@ -25,27 +25,27 @@ MonoBehaviour:
   overrideMaterialNonGeo: {fileID: 0}
   hasContent: 1
   opaque: 0
-  textureTop: {fileID: 2800000, guid: ca75a03c7b5d64e939312e2f7eac141d, type: 3}
+  textureTop: {fileID: 2800000, guid: 994e8cc250c7b274596016dcf2551fe9, type: 3}
   textureTopEmission: {fileID: 0}
   textureTopNRM: {fileID: 0}
   textureTopDISP: {fileID: 0}
-  textureSide: {fileID: 2800000, guid: ca75a03c7b5d64e939312e2f7eac141d, type: 3}
+  textureSide: {fileID: 2800000, guid: 994e8cc250c7b274596016dcf2551fe9, type: 3}
   textureSideEmission: {fileID: 0}
   textureSideNRM: {fileID: 0}
   textureSideDISP: {fileID: 0}
-  textureRight: {fileID: 0}
+  textureRight: {fileID: 2800000, guid: 994e8cc250c7b274596016dcf2551fe9, type: 3}
   textureRightEmission: {fileID: 0}
   textureRightNRM: {fileID: 0}
   textureRightDISP: {fileID: 0}
-  textureForward: {fileID: 0}
+  textureForward: {fileID: 2800000, guid: 994e8cc250c7b274596016dcf2551fe9, type: 3}
   textureForwardEmission: {fileID: 0}
   textureForwardNRM: {fileID: 0}
   textureForwardDISP: {fileID: 0}
-  textureLeft: {fileID: 0}
+  textureLeft: {fileID: 2800000, guid: 994e8cc250c7b274596016dcf2551fe9, type: 3}
   textureLeftEmission: {fileID: 0}
   textureLeftNRM: {fileID: 0}
   textureLeftDISP: {fileID: 0}
-  textureBottom: {fileID: 2800000, guid: ca75a03c7b5d64e939312e2f7eac141d, type: 3}
+  textureBottom: {fileID: 2800000, guid: 994e8cc250c7b274596016dcf2551fe9, type: 3}
   textureBottomEmission: {fileID: 0}
   textureBottomNRM: {fileID: 0}
   textureBottomDISP: {fileID: 0}
