@@ -60,8 +60,8 @@ MonoBehaviour:
   pickupSound: {fileID: 0}
   buildSound: {fileID: 0}
   footfalls:
-  - {fileID: 8300000, guid: 601d127bc206b4f31b800044802281ac, type: 3}
   - {fileID: 8300000, guid: 4e1e2f5b5230941699c66f6261469eec, type: 3}
+  - {fileID: 8300000, guid: 601d127bc206b4f31b800044802281ac, type: 3}
   jumpSound: {fileID: 8300000, guid: 4ae12959a77e4427b9d8ea45d19a81d8, type: 3}
   landingSound: {fileID: 8300000, guid: cdd9c5956822c46c485c174712857826, type: 3}
   impactSound: {fileID: 8300000, guid: 752e6297b7e3c4ff58a7f8f09a6dd124, type: 3}

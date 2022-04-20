@@ -25,11 +25,11 @@ MonoBehaviour:
   overrideMaterialNonGeo: {fileID: 0}
   hasContent: 1
   opaque: 0
-  textureTop: {fileID: 2800000, guid: 135731f4730e74de8918897ab6ac599d, type: 3}
+  textureTop: {fileID: 2800000, guid: 3da63a23646718b4db09fd96d1c3b823, type: 3}
   textureTopEmission: {fileID: 0}
-  textureTopNRM: {fileID: 2800000, guid: 98d3448e3cdb14cf5a1ea9c6401d47d2, type: 3}
-  textureTopDISP: {fileID: 2800000, guid: 753e556c84150405290360c8a2a1bb2f, type: 3}
-  textureSide: {fileID: 2800000, guid: 135731f4730e74de8918897ab6ac599d, type: 3}
+  textureTopNRM: {fileID: 0}
+  textureTopDISP: {fileID: 0}
+  textureSide: {fileID: 2800000, guid: 3da63a23646718b4db09fd96d1c3b823, type: 3}
   textureSideEmission: {fileID: 0}
   textureSideNRM: {fileID: 0}
   textureSideDISP: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   textureLeftEmission: {fileID: 0}
   textureLeftNRM: {fileID: 0}
   textureLeftDISP: {fileID: 0}
-  textureBottom: {fileID: 2800000, guid: 135731f4730e74de8918897ab6ac599d, type: 3}
+  textureBottom: {fileID: 2800000, guid: 3da63a23646718b4db09fd96d1c3b823, type: 3}
   textureBottomEmission: {fileID: 0}
   textureBottomNRM: {fileID: 0}
   textureBottomDISP: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
   footfalls:
   - {fileID: 8300000, guid: 510d5aa52647b45b5801a9be24883eed, type: 3}
   jumpSound: {fileID: 8300000, guid: 4ae12959a77e4427b9d8ea45d19a81d8, type: 3}
-  landingSound: {fileID: 8300000, guid: 510d5aa52647b45b5801a9be24883eed, type: 3}
+  landingSound: {fileID: 8300000, guid: 5a6e6cb6c17654bf594121fea4a686a2, type: 3}
   impactSound: {fileID: 8300000, guid: 752e6297b7e3c4ff58a7f8f09a6dd124, type: 3}
   destructionSound: {fileID: 8300000, guid: 1ee79e60cb27a48f493ed603d3a0d9ce, type: 3}
   resistancePoints: 5

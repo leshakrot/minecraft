@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -26,8 +27,8 @@ MonoBehaviour:
   defaultBiome: {fileID: 0}
   infinite: 1
   extents: {x: 600, y: 1024, z: 300}
-  grassWindSpeed: 1
-  treeWindSpeed: 1
+  grassWindSpeed: 5.8
+  treeWindSpeed: 5.8
   terrainGenerator: {fileID: 11400000, guid: 9176b9ec3019c476d8fcbf13968eecb8, type: 2}
   detailGenerators:
   - {fileID: 11400000, guid: 396d2f96698424fec80dec86e13b70d0, type: 2}
@@ -86,5 +87,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2e9a490315cc4c3f87f51bf2f7b7405, type: 2}
   - {fileID: 11400000, guid: 4c809d5343149417797aeb8935acd105, type: 2}
   items: []
-  tileRuleSets: []
-  resourceLocation: Worlds/Earth
+  resourceLocation: 

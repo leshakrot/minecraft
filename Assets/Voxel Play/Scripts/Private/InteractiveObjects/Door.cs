@@ -31,7 +31,7 @@ namespace VoxelPlay {
 
 		public override void OnPlayerApproach () {
 			if (!shown) {
-				env.ShowMessage (txt: "<color=green>Press </color><color=yellow>T</color> to open/close this door.", allowDuplicatedMessage: true);
+				env.ShowMessage (txt: "<color=green>Нажмите </color><color=yellow>T</color> чтобы открыть/закрыть эту дверь.", allowDuplicatedMessage: true);
 				shown = true;
 			}
 		}

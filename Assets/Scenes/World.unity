@@ -422,8 +422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fxRoot: {fileID: 0}
   particlePoolSize: 1000
-  voxelDefinitionsCount: 74
-  enableURP: 0
+  voxelDefinitionsCount: 75
+  enableURP: 1
   world: {fileID: 11400000, guid: 9c8445380140245d0b4806a2ee8972b6, type: 2}
   enableBuildMode: 1
   constructorMode: 0
@@ -464,7 +464,7 @@ MonoBehaviour:
   globalIllumination: 1
   ambientLight: 0.126
   daylightShadowAtten: 0.392
-  enableSmoothLighting: 0
+  enableSmoothLighting: 1
   obscuranceMode: 0
   obscuranceIntensity: 0.5
   enableReliefMapping: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
   reliefIterationsBinarySearch: 5
   enableNormalMap: 0
   enableFogSkyBlending: 1
-  textureSize: 32
+  textureSize: 16
   maxChunks: 5000
   hqFiltering: 0
   mipMapBias: 0.5
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventoryRows: 10
-  _inventoryColumns: 3
+  _inventoryColumns: 10
 --- !u!114 &166871899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3652,7 +3652,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 80, y: 15}
+  m_SizeDelta: {x: 513, y: 15}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &914628693
 MonoBehaviour:

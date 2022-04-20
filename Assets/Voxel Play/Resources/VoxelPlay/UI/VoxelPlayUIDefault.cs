@@ -35,7 +35,7 @@ namespace VoxelPlay {
 		}
 
 		[SerializeField]
-		int _inventoryColumns = 3;
+		int _inventoryColumns = 10;
 
 		public virtual int inventoryColumns {
 			get { return _inventoryColumns; }
@@ -821,7 +821,7 @@ namespace VoxelPlay {
 				leftShiftPressed = false;
 				refresh = true;
 				columnToShow++;
-				if (columnToShow > 2)
+				if (columnToShow > 9)
 					columnToShow = 0;
 			}
 			if (!refresh && !forceRefresh)
@@ -919,7 +919,7 @@ namespace VoxelPlay {
 					int totalPages = (playerItemsCount - 1) / itemsPerPage + 1;
 					if (totalPages < 0)
 						totalPages = 1;
-					inventoryTitleText.text = "Страница " + (inventoryCurrentPage + 1) + "/" + totalPages;
+					inventoryTitleText.text = "Страница " + (inventoryCurrentPage + 1) + "/" + totalPages + ". SHIFT - выбор столбца. TAB - след. страница/выход";
 				} else {
 					inventoryTitle.SetActive (false);
 				}
