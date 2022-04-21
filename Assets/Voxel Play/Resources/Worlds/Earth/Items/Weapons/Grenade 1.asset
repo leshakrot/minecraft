@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d5d8e3721e240edb1241906352c93a, type: 3}
+  m_Name: Grenade 1
+  m_EditorClassIdentifier: 
+  title: "\u0414\u0438\u043D\u0430\u043C\u0438\u0442 \u043F\u043E\u0431\u043E\u043B\u044C\u0448\u0435"
+  category: 10
+  voxelType: {fileID: 0}
+  model: {fileID: 0}
+  icon: {fileID: 2800000, guid: 451b7f4e53955854a98f8e427656bffc, type: 3}
+  color:
+    serializedVersion: 2
+    rgba: 4294967295
+  prefab: {fileID: 3759184950916801117, guid: b297babd4d58dfe4a8bcb1f16ba8c7db, type: 3}
+  useSound: {fileID: 0}
+  canBePicked: 1
+  pickMode: 0
+  pickupSound: {fileID: 0}
+  properties: []
+  lightIntensity: 15

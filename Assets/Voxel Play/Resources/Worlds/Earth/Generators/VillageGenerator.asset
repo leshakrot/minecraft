@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: VillageGenerator
   m_EditorClassIdentifier: 
   enabled: 1
-  spawnProbability: 0.0686
+  spawnProbability: 0.0551
   buildings:
   - {fileID: 11400000, guid: ef165440b0191443b8cfba0c3e346279, type: 2}
   - {fileID: 11400000, guid: 3c504969fd0bf402492b0df44cb828b5, type: 2}
+  - {fileID: 11400000, guid: 21377d27b230a8e4788238aed36535fa, type: 2}
+  - {fileID: 11400000, guid: 0af43b96db25e284ea7fd768fd61f2fe, type: 2}

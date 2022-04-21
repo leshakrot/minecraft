@@ -911,9 +911,9 @@ namespace VoxelPlay {
 			}
 
 			if (inventoryTitle != null) {
-				if (playerItemsCount == 0) {
+				if (playerItemsCount == 4) {
 					inventoryTitle.SetActive (true);
-					inventoryTitleText.text = "Пусто, войдите в режим строительства (кнопка B).";
+					inventoryTitleText.text = "Чтобы войти в режим строительства - нажмите кнопку B.";
 				} else if (playerItemsCount > itemsPerPage) {
 					inventoryTitle.SetActive (true);
 					int totalPages = (playerItemsCount - 1) / itemsPerPage + 1;
