@@ -8,12 +8,41 @@ using UnityEngine.UI;
 
 namespace VoxelPlay {
 
-
 	public partial class VoxelPlayUIDefault : VoxelPlayUI {
-								
+
+		[SerializeField] private GameObject adNotificator;
+		[SerializeField] private GameObject fpsController;
+
+		private YandexSDK sdk;
+
+		bool isAgreedWithRewardNotification = false;
+
+		bool isTNTSmallAchieved = false;
+		bool isTNTMediumAchieved = false;
+		bool isTNTLargeAchieved = false;
+		bool isSviborgAchieved = false;
+		bool isLeaves2Achieved = false;
+		bool isCrimsonBoardsAchieved = false;
+		bool isLeaves3Achieved = false;
+		bool isBrickWallAchieved = false;
+		bool isRawGoldAchieved = false;
+		bool isAmethystAchieved = false;
+		bool isLapisAchieved = false;
+		bool isLimeWoolAchieved = false;
+		bool isLightGrayWoolAchieved = false;
+		bool isGrayWoolAchieved = false;
+
+		private void Start()
+		{
+			sdk = YandexSDK.instance;
+			sdk.onRewardedAdReward += Reward;
+			adNotificator.SetActive(false);
+		}
+
 		/// <summary>
 		/// Returns true if the console is visible
 		/// </summary>
+		/// 
 		public override bool IsVisible {
 			get {
 				if (console != null)
@@ -87,9 +116,9 @@ namespace VoxelPlay {
 
         // Left time for current interval
         float fpsTimeleft;
+        private InventoryItem invItem;
 
-
-		public override void InitUI () {
+        public override void InitUI () {
 			firstTimeConsole = true;
 			firstTimeInventory = true;
 			inventoryCurrentPage = 0;
@@ -215,7 +244,6 @@ namespace VoxelPlay {
 			if (fpsText.enabled) {
 				UpdateFPSCounter ();
 			}
-
 		}
 
 
@@ -366,7 +394,6 @@ namespace VoxelPlay {
 				statusText.text = "";
 				FocusInputField ();
 			}
-
 			VoxelPlayEnvironment.instance.input.enabled = !state;
 		}
 
@@ -935,13 +962,33 @@ namespace VoxelPlay {
 			VoxelPlayPlayer.instance.selectedItemIndex = selectedItemIndex;
 		}
 
+		public void AppearAdNotification()
+        {
+			VoxelPlayFirstPersonController controller = VoxelPlayFirstPersonController.instance;
+			adNotificator.SetActive(true);
+			controller.mouseLook.SetCursorLock(false);
+			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = false;
+		}
+
+		public void CloseAdNotificator()
+        {
+			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = true;
+			adNotificator.SetActive (false);
+        }
+
+		public void AgreeAdNotification()
+        {
+			isAgreedWithRewardNotification = true;
+			sdk.ShowRewarded("block");
+		}
+
 
 		/// <summary>
 		/// Updates selected item representation on screen
 		/// </summary>
 		public override void ShowSelectedItem (InventoryItem inventoryItem) {
 			if (selectedItemPlaceholder == null || env == null || !env.enableInventory)
-				return;
+				return;	
 			ItemDefinition item = inventoryItem.item;
 			selectedItem.texture = item.icon;
 			selectedItem.color = item.color;
@@ -959,7 +1006,178 @@ namespace VoxelPlay {
 			selectedItemQuantity.enabled = quantityVisible;
 			selectedItemQuantity.text = quantity;
 			RefreshInventoryContents ();
-			ToggleSelectedItemName ();
+			if (txt == "Маленький динамит" && isTNTSmallAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isTNTSmallAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if(txt == "Динамит побольше" && isTNTMediumAchieved == false)
+            {
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isTNTMediumAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Очень мощный динамит" && isTNTLargeAchieved == false)
+            {
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isTNTLargeAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Свиборг, он брутален" && isSviborgAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isSviborgAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Листва 2" && isLeaves2Achieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isLeaves2Achieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Малиновые доски" && isCrimsonBoardsAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isCrimsonBoardsAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Листва 3" && isLeaves3Achieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isLeaves3Achieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Кирпичная стена" && isBrickWallAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isBrickWallAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Необработанное золото" && isRawGoldAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isRawGoldAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Аметист" && isAmethystAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isAmethystAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Лазуритовый блок" && isLapisAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isLapisAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Лаймовая шерсть" && isLimeWoolAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isLimeWoolAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Светло-серая шерсть" && isLightGrayWoolAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isLightGrayWoolAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else if (txt == "Серая шерсть" && isGrayWoolAchieved == false)
+			{
+				if (isAgreedWithRewardNotification == true)
+				{
+					ToggleSelectedItemName();
+					isGrayWoolAchieved = true;
+					isAgreedWithRewardNotification = false;
+				}
+				else AppearAdNotification();
+			}
+			else
+			{
+				ToggleSelectedItemName();
+			}
+		}
+
+        public void Reward(string placement)
+        {
+			if (selectedItemPlaceholder == null || env == null || !env.enableInventory)
+				return;
+			ItemDefinition item = invItem.item;
+			selectedItem.texture = item.icon;
+			selectedItem.color = item.color;
+			string txt = item.title;
+			if (string.IsNullOrEmpty(txt) && item.voxelType != null)
+			{
+				txt = item.voxelType.name;
+			}
+			selectedItemName.text = txt;
+			selectedItemNameShadow.text = txt;
+			selectedItemPlaceholder.SetActive(true);
+			string quantity = invItem.quantity.ToString();
+			bool quantityVisible = !VoxelPlayEnvironment.instance.buildMode;
+			selectedItemQuantityShadow.enabled = quantityVisible;
+			selectedItemQuantityShadow.text = quantity;
+			selectedItemQuantity.enabled = quantityVisible;
+			selectedItemQuantity.text = quantity;
+			RefreshInventoryContents();
+			if (placement == "block")
+			{
+				ToggleSelectedItemName();
+			}
 		}
 
 		void ToggleSelectedItemName () {

@@ -146,7 +146,6 @@ namespace VoxelPlay {
                 OnConsoleNewCommand.Invoke (s);
             }
         }
-
     }
 
 

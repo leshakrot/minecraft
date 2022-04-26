@@ -10,6 +10,8 @@ namespace VoxelPlay
     public partial class VoxelPlayFirstPersonController : VoxelPlayCharacterControllerBase
     {
 
+        
+
         [Header ("Movement")]
         public float walkSpeed = 5f;
         public float runSpeed = 10f;
