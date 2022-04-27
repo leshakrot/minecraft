@@ -209,7 +209,7 @@ namespace VoxelPlay {
 					inputField.MoveTextEnd (false);
 				} else if (Input.GetKeyDown (KeyCode.F8)) {
 					ToggleFPS ();
-				} else if (inventoryPlaceholder.activeSelf) {
+				} /*else if (inventoryPlaceholder.activeSelf) {
 					if (Input.GetKeyDown (KeyCode.Alpha1)) {
 						SelectItemFromVisibleInventorySlot (0);
 					} else if (Input.GetKeyDown (KeyCode.Alpha2)) {
@@ -231,7 +231,7 @@ namespace VoxelPlay {
 					} else if (Input.GetKeyDown (KeyCode.Alpha0)) {
 						SelectItemFromVisibleInventorySlot (9);
 					}
-				}
+				}*/
 			}
 
 			if (inventoryPlaceholder.activeSelf) {
@@ -728,7 +728,11 @@ namespace VoxelPlay {
 		public override void ToggleInventoryVisibility (bool state) {
 			if (!state) {
 				inventoryPlaceholder.SetActive (false);
+				EnableCursor(false);
+				fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = true;
 			} else {
+				EnableCursor(true);
+				fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = false;
 				CheckInventoryUI ();
 				RefreshInventoryContents ();
 				inventoryPlaceholder.SetActive (true);
@@ -825,7 +829,7 @@ namespace VoxelPlay {
 					string keyCode = r < KEY_CODES.Length ? KEY_CODES.Substring (r, 1) : "";
 					Text t = itemButton.transform.Find ("KeyCodeShadow/KeyCodeText").GetComponent<Text> ();
 					t.enabled = c == 0;
-					t.text = keyCode;
+					//t.text = keyCode;
 					inventoryItemsImages.Add (itemButton.GetComponent<RawImage> ());
 					int aux = i; // dummy assignation so the lambda expression takes the appropiate value and not always the last item
 					itemButton.GetComponent<Button> ().onClick.AddListener (delegate() {
@@ -879,7 +883,6 @@ namespace VoxelPlay {
 			int itemsPerPage = _inventoryRows * _inventoryColumns;
 			int itemIndex = inventoryCurrentPage * itemsPerPage + inventoryImageIndex;
 			VoxelPlayPlayer.instance.selectedItemIndex = itemIndex;
-			ToggleInventoryVisibility (false);
 		}
 
 		/// <summary>
@@ -952,7 +955,6 @@ namespace VoxelPlay {
 					inventoryTitle.SetActive (false);
 				}
 			}
-
 		}
 
 
@@ -965,25 +967,24 @@ namespace VoxelPlay {
 
 		public void AppearAdNotification()
         {
-			VoxelPlayFirstPersonController controller = VoxelPlayFirstPersonController.instance;
-			adNotificator.SetActive(true);
-			controller.mouseLook.SetCursorLock(false);
 			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = false;
+			adNotificator.SetActive(true);
 			isAdNotificationClosed = false;
+			EnableCursor(true);
 		}
 
 		public void CloseAdNotificator()
         {
-			VoxelPlayFirstPersonController controller = VoxelPlayFirstPersonController.instance;
-			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = true;
-			controller.mouseLook.SetCursorLock(true);
 			isAdNotificationClosed = true;
 			adNotificator.SetActive (false);
-        }
+			EnableCursor(false);
+			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = true;
+		}
 
 		public void AgreeAdNotification()
         {
 			isAgreedWithRewardNotification = true;
+			ToggleInventoryVisibility(false);
 			sdk.ShowRewarded("block");
         }
 
@@ -999,7 +1000,7 @@ namespace VoxelPlay {
 		/// </summary>
 		public override void ShowSelectedItem (InventoryItem inventoryItem) {
 			if (selectedItemPlaceholder == null || env == null || !env.enableInventory)
-				return;	
+				return;
 			ItemDefinition item = inventoryItem.item;
 			selectedItem.texture = item.icon;
 			selectedItem.color = item.color;
