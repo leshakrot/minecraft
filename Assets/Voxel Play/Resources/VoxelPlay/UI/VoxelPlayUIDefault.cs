@@ -15,7 +15,7 @@ namespace VoxelPlay {
 
 		private YandexSDK sdk;
 
-		bool isAdNotificationClosed = false;
+		bool isAdNotificationClosed = true;
 		bool isAgreedWithRewardNotification = false;
 
 		bool isTNTSmallAchieved = false;
@@ -32,6 +32,9 @@ namespace VoxelPlay {
 		bool isLimeWoolAchieved = false;
 		bool isLightGrayWoolAchieved = false;
 		bool isGrayWoolAchieved = false;
+
+		int selectedItemIndexInInventory;
+		int previousSelectedItemIndexInInventory;
 
 		private void Start()
 		{
@@ -739,7 +742,7 @@ namespace VoxelPlay {
 				if (firstTimeInventory) {
 					firstTimeInventory = false;
 					if (!env.isMobilePlatform) {
-						env.ShowMessage ("<color=green>Нажмите на <color=yellow>цифру</color> желаемого блока, <color=yellow>Shift</color> - переключение между столбцами</color>");
+						env.ShowMessage ("<color=green>Нажмите на блок который хотите выбрать</color>");
 					}
 				}
 			}
@@ -881,8 +884,9 @@ namespace VoxelPlay {
 
 		void InventoryImageClick (int inventoryImageIndex) {
 			int itemsPerPage = _inventoryRows * _inventoryColumns;
-			int itemIndex = inventoryCurrentPage * itemsPerPage + inventoryImageIndex;
-			VoxelPlayPlayer.instance.selectedItemIndex = itemIndex;
+			previousSelectedItemIndexInInventory = selectedItemIndexInInventory;
+			selectedItemIndexInInventory = inventoryCurrentPage * itemsPerPage + inventoryImageIndex;
+			VoxelPlayPlayer.instance.selectedItemIndex = selectedItemIndexInInventory;
 		}
 
 		/// <summary>
@@ -944,13 +948,13 @@ namespace VoxelPlay {
 			if (inventoryTitle != null) {
 				if (playerItemsCount == 4) {
 					inventoryTitle.SetActive (true);
-					inventoryTitleText.text = "Чтобы войти в режим строительства - нажмите кнопку B.";
+					inventoryTitleText.text = "Чтобы войти в режим строительства - нажмите TAB, а затем B";
 				} else if (playerItemsCount > itemsPerPage) {
 					inventoryTitle.SetActive (true);
 					int totalPages = (playerItemsCount - 1) / itemsPerPage + 1;
 					if (totalPages < 0)
 						totalPages = 1;
-					inventoryTitleText.text = "Страница " + (inventoryCurrentPage + 1) + "/" + totalPages + ". SHIFT - выбор столбца. TAB - след. страница/выход";
+					inventoryTitleText.text = "Страница " + (inventoryCurrentPage + 1) + "/" + totalPages + ". TAB - следующая страница / выход";
 				} else {
 					inventoryTitle.SetActive (false);
 				}
@@ -973,32 +977,35 @@ namespace VoxelPlay {
 			EnableCursor(true);
 		}
 
-		public void CloseAdNotificator()
+		public void DeclineAdNotificator()
         {
+			SelectItemFromVisibleInventorySlot(previousSelectedItemIndexInInventory);
+			InventoryImageClick(previousSelectedItemIndexInInventory);
 			isAdNotificationClosed = true;
 			adNotificator.SetActive (false);
-			EnableCursor(false);
-			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = true;
+			EnableCursor(true);
+			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = false;
 		}
 
 		public void AgreeAdNotification()
         {
+			SelectItemFromVisibleInventorySlot(selectedItemIndexInInventory);
+			InventoryImageClick(selectedItemIndexInInventory);
 			isAgreedWithRewardNotification = true;
 			ToggleInventoryVisibility(false);
+			isAdNotificationClosed = true;
 			sdk.ShowRewarded("block");
-        }
+			adNotificator.SetActive(false);
+			EnableCursor(false);
+			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = true;
+		}
 
-		IEnumerator WaitUntilNotificationClosed()
-        {
-			yield return new WaitUntil(() => isAdNotificationClosed == true);
-			yield return new WaitForSeconds(0.1f);
-        }
+        /// <summary>
+        /// Updates selected item representation on screen
+        /// </summary>
+        /// 
 
-
-		/// <summary>
-		/// Updates selected item representation on screen
-		/// </summary>
-		public override void ShowSelectedItem (InventoryItem inventoryItem) {
+        public override void ShowSelectedItem (InventoryItem inventoryItem) {
 			if (selectedItemPlaceholder == null || env == null || !env.enableInventory)
 				return;
 			ItemDefinition item = inventoryItem.item;
@@ -1021,7 +1028,11 @@ namespace VoxelPlay {
 			if (txt == "Маленький динамит" && isTNTSmallAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
+				//SelectItemFromVisibleInventorySlot(previousSelectedItemIndexInInventory);
+				InventoryImageClick(previousSelectedItemIndexInInventory);
+				//SelectItemFromVisibleInventorySlot(previousSelectedItemIndexInInventory);
+				InventoryImageClick(previousSelectedItemIndexInInventory);
+				Debug.Log(isAgreedWithRewardNotification);
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1032,7 +1043,6 @@ namespace VoxelPlay {
 			if(txt == "Динамит побольше" && isTNTMediumAchieved == false)
             {
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1043,7 +1053,6 @@ namespace VoxelPlay {
 			if (txt == "Очень мощный динамит" && isTNTLargeAchieved == false)
             {
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1054,7 +1063,6 @@ namespace VoxelPlay {
 			if (txt == "Свиборг, он брутален" && isSviborgAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1065,7 +1073,6 @@ namespace VoxelPlay {
 			if (txt == "Листва 2" && isLeaves2Achieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1076,7 +1083,6 @@ namespace VoxelPlay {
 			if (txt == "Малиновые доски" && isCrimsonBoardsAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1087,7 +1093,6 @@ namespace VoxelPlay {
 			if (txt == "Листва 3" && isLeaves3Achieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1098,7 +1103,6 @@ namespace VoxelPlay {
 			if (txt == "Кирпичная стена" && isBrickWallAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1109,7 +1113,6 @@ namespace VoxelPlay {
 			if (txt == "Необработанное золото" && isRawGoldAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1120,7 +1123,6 @@ namespace VoxelPlay {
 			if (txt == "Аметист" && isAmethystAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1131,7 +1133,6 @@ namespace VoxelPlay {
 			if (txt == "Лазуритовый блок" && isLapisAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1142,7 +1143,6 @@ namespace VoxelPlay {
 			if (txt == "Лаймовая шерсть" && isLimeWoolAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1153,7 +1153,6 @@ namespace VoxelPlay {
 			if (txt == "Светло-серая шерсть" && isLightGrayWoolAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();
@@ -1164,7 +1163,6 @@ namespace VoxelPlay {
 			if (txt == "Серая шерсть" && isGrayWoolAchieved == false)
 			{
 				AppearAdNotification();
-				StartCoroutine(WaitUntilNotificationClosed());
 				if (isAgreedWithRewardNotification == true)
 				{
 					ToggleSelectedItemName();

@@ -3658,7 +3658,7 @@ namespace VoxelPlay
         /// Shows a custom message into the status text.
         /// </summary>
         /// <param name="txt">Text.</param>
-        public void ShowMessage (string txt, float displayDuration = 4, bool flashEffect = false, bool openConsole = false, bool allowDuplicatedMessage = false)
+        public void ShowMessage (string txt, float displayDuration = 15, bool flashEffect = false, bool openConsole = false, bool allowDuplicatedMessage = false)
         {
             if (!allowDuplicatedMessage && lastMessage == txt)
                 return;

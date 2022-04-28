@@ -190,7 +190,7 @@ namespace VoxelPlay {
 			}
 			env.UpdateLights ();
 			if (light.enabled) {
-				env.ShowMessage ("<color=green>Факен <color=yellow>зажжен</color></color>");
+				env.ShowMessage ("<color=green>Факел <color=yellow>зажжен</color></color>");
 			} else {
 				env.ShowMessage ("<color=green>Факел <color=yellow>потушен</color></color>");
 			}

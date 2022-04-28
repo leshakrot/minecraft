@@ -33,8 +33,8 @@ namespace VoxelPlayDemos
             // Item definitions are stored in Items folder within the world name folder
 
             // Add 3 torches to initial player inventory
-            VoxelPlayPlayer.instance.AddInventoryItem (env.GetItemDefinition ("Torch"), 3);
-            VoxelPlayPlayer.instance.AddInventoryItem (env.GetItemDefinition ("Torch Red"), 2);
+            VoxelPlayPlayer.instance.AddInventoryItem (env.GetItemDefinition ("Torch"), 200);
+            VoxelPlayPlayer.instance.AddInventoryItem (env.GetItemDefinition ("Torch Red"), 200);
 
             // Add a shovel (no need to specify quantity it's 1 unit)
             VoxelPlayPlayer.instance.AddInventoryItem (env.GetItemDefinition ("Shovel"));
@@ -63,7 +63,7 @@ namespace VoxelPlayDemos
 
         void SpecialKeys ()
         {
-            env.ShowMessage ("<color=green><color=yellow>R </color>Брутальный Свиборг, <color=yellow>Y </color>Легендарный Гнум, <color=yellow>TAB</color> Инвентарь, <color=yellow>M</color> Гравитационная пушка, <color=yellow>F</color> Полёт</color>", 20, true);
+            env.ShowMessage ("<color=green><color=yellow>R </color>Брутальный Свиборг, <color=yellow>Y </color>Легендарный Гнум, <color=yellow>TAB</color> Инвентарь, <color=yellow>B</color> Режим строительства, <color=yellow>F</color> Полёт</color>", 20, true);
         }
 
         void Update ()

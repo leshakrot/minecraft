@@ -500,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fxRoot: {fileID: 0}
   particlePoolSize: 1000
-  voxelDefinitionsCount: 115
+  voxelDefinitionsCount: 114
   enableURP: 0
   world: {fileID: 11400000, guid: 9c8445380140245d0b4806a2ee8972b6, type: 2}
   enableBuildMode: 1
@@ -4187,7 +4187,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 166871898}
         m_TargetAssemblyTypeName: VoxelPlay.VoxelPlayUIDefault, Assembly-CSharp
-        m_MethodName: CloseAdNotificator
+        m_MethodName: DeclineAdNotificator
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4759,18 +4759,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 166871898}
-        m_TargetAssemblyTypeName: VoxelPlay.VoxelPlayUIDefault, Assembly-CSharp
-        m_MethodName: CloseAdNotificator
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 166871898}
         m_TargetAssemblyTypeName: VoxelPlay.VoxelPlayUIDefault, Assembly-CSharp
         m_MethodName: AgreeAdNotification
