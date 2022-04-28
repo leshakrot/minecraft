@@ -15,23 +15,49 @@ namespace VoxelPlay {
 
 		private YandexSDK sdk;
 
-		bool isAdNotificationClosed = true;
 		bool isAgreedWithRewardNotification = false;
 
 		bool isTNTSmallAchieved = false;
+		bool isTNTSmallAsked = false;
+
 		bool isTNTMediumAchieved = false;
+		bool isTNTMediumAsked = false;
+
 		bool isTNTLargeAchieved = false;
+		bool isTNTLargeAsked = false;
+
 		bool isSviborgAchieved = false;
+		bool isSviborgAsked = false;
+
 		bool isLeaves2Achieved = false;
+		bool isLeaves2Asked = false;
+
 		bool isCrimsonBoardsAchieved = false;
+		bool isCrimsonBoardsAsked = false;
+
 		bool isLeaves3Achieved = false;
+		bool isLeaves3Asked = false;
+
 		bool isBrickWallAchieved = false;
+		bool isBrickWallAsked = false;
+
 		bool isRawGoldAchieved = false;
+		bool isRawGoldAsked = false;
+
 		bool isAmethystAchieved = false;
+		bool isAmethystAsked = false;
+
 		bool isLapisAchieved = false;
+		bool isLapisAsked = false;
+
 		bool isLimeWoolAchieved = false;
+		bool isLimeWoolAsked = false;
+
 		bool isLightGrayWoolAchieved = false;
+		bool isLightGrayWoolAsked = false;
+
 		bool isGrayWoolAchieved = false;
+		bool isGrayWoolAsked = false;
 
 		int selectedItemIndexInInventory;
 		int previousSelectedItemIndexInInventory;
@@ -961,7 +987,6 @@ namespace VoxelPlay {
 			}
 		}
 
-
 		void SelectItemFromVisibleInventorySlot (int itemIndex) {
 			int slotIndex = itemIndex + columnToShow * _inventoryRows;
 			int itemsPerPage = _inventoryRows * _inventoryColumns;
@@ -973,15 +998,13 @@ namespace VoxelPlay {
         {
 			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = false;
 			adNotificator.SetActive(true);
-			isAdNotificationClosed = false;
 			EnableCursor(true);
 		}
 
 		public void DeclineAdNotificator()
         {
-			SelectItemFromVisibleInventorySlot(previousSelectedItemIndexInInventory);
-			InventoryImageClick(previousSelectedItemIndexInInventory);
-			isAdNotificationClosed = true;
+			SelectItemFromVisibleInventorySlot(1);
+			InventoryImageClick(1);
 			adNotificator.SetActive (false);
 			EnableCursor(true);
 			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = false;
@@ -989,13 +1012,26 @@ namespace VoxelPlay {
 
 		public void AgreeAdNotification()
         {
-			SelectItemFromVisibleInventorySlot(selectedItemIndexInInventory);
+			Debug.Log("Agreed");
 			InventoryImageClick(selectedItemIndexInInventory);
+			if (selectedItemIndexInInventory == 4) isTNTSmallAchieved = true;
+			else if (selectedItemIndexInInventory == 53) isSviborgAchieved = true;
+			else if (selectedItemIndexInInventory == 64) isCrimsonBoardsAchieved = true;
+			else if (selectedItemIndexInInventory == 147) isAmethystAchieved = true;
+			else if (selectedItemIndexInInventory == 5) isTNTMediumAchieved = true;
+			else if (selectedItemIndexInInventory == 6) isTNTLargeAchieved = true;
+			else if (selectedItemIndexInInventory == 31) isLeaves2Achieved = true;
+			else if (selectedItemIndexInInventory == 47) isLeaves3Achieved = true;
+			else if (selectedItemIndexInInventory == 48) isBrickWallAchieved = true;
+			else if (selectedItemIndexInInventory == 161) isRawGoldAchieved = true;
+			else if (selectedItemIndexInInventory == 159) isLapisAchieved = true;
+			else if (selectedItemIndexInInventory == 160) isLimeWoolAchieved = true;
+			else if (selectedItemIndexInInventory == 165) isLightGrayWoolAchieved = true;
+			else if (selectedItemIndexInInventory == 167) isGrayWoolAchieved = true;
 			isAgreedWithRewardNotification = true;
-			ToggleInventoryVisibility(false);
-			isAdNotificationClosed = true;
 			sdk.ShowRewarded("block");
 			adNotificator.SetActive(false);
+			ToggleInventoryVisibility(false);
 			EnableCursor(false);
 			fpsController.gameObject.GetComponent<VoxelPlayFirstPersonController>().enabled = true;
 		}
@@ -1028,147 +1064,128 @@ namespace VoxelPlay {
 			if (txt == "Маленький динамит" && isTNTSmallAchieved == false)
 			{
 				AppearAdNotification();
-				//SelectItemFromVisibleInventorySlot(previousSelectedItemIndexInInventory);
-				InventoryImageClick(previousSelectedItemIndexInInventory);
-				//SelectItemFromVisibleInventorySlot(previousSelectedItemIndexInInventory);
-				InventoryImageClick(previousSelectedItemIndexInInventory);
-				Debug.Log(isAgreedWithRewardNotification);
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isTNTSmallAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
 			}
-			if(txt == "Динамит побольше" && isTNTMediumAchieved == false)
-            {
+			if (txt == "Маленький динамит" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
+			}
+			if (txt == "Динамит побольше" && isTNTMediumAchieved == false)
+			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isTNTMediumAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Динамит побольше" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Очень мощный динамит" && isTNTLargeAchieved == false)
             {
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isTNTLargeAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Очень мощный динамит" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Свиборг, он брутален" && isSviborgAchieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isSviborgAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Свиборг, он брутален" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Листва 2" && isLeaves2Achieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isLeaves2Achieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Листва 2" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Малиновые доски" && isCrimsonBoardsAchieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isCrimsonBoardsAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Малиновые доски" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Листва 3" && isLeaves3Achieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isLeaves3Achieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Листва 3" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Кирпичная стена" && isBrickWallAchieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isBrickWallAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Кирпичная стена" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Необработанное золото" && isRawGoldAchieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isRawGoldAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Необработанное золото" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Аметист" && isAmethystAchieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isAmethystAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Аметист" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Лазуритовый блок" && isLapisAchieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isLapisAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Лазуритовый блок" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Лаймовая шерсть" && isLimeWoolAchieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isLimeWoolAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Лаймовая шерсть" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Светло-серая шерсть" && isLightGrayWoolAchieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isLightGrayWoolAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Светло-серая шерсть" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			if (txt == "Серая шерсть" && isGrayWoolAchieved == false)
 			{
 				AppearAdNotification();
-				if (isAgreedWithRewardNotification == true)
-				{
-					ToggleSelectedItemName();
-					isGrayWoolAchieved = true;
-					isAgreedWithRewardNotification = false;
-				}
+			}
+			if (txt == "Серая шерсть" && isAgreedWithRewardNotification == true)
+			{
+				ToggleSelectedItemName();
+				isAgreedWithRewardNotification = false;
 			}
 			else
 			{
