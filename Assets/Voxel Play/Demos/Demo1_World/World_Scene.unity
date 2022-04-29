@@ -500,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fxRoot: {fileID: 0}
   particlePoolSize: 1000
-  voxelDefinitionsCount: 115
+  voxelDefinitionsCount: 114
   enableURP: 0
   world: {fileID: 11400000, guid: 9c8445380140245d0b4806a2ee8972b6, type: 2}
   enableBuildMode: 1
@@ -538,19 +538,19 @@ MonoBehaviour:
   loadSavedGame: 0
   saveFilename: sampleWorld
   globalIllumination: 1
-  ambientLight: 0.126
-  daylightShadowAtten: 0.392
-  enableSmoothLighting: 0
-  obscuranceMode: 0
-  obscuranceIntensity: 0.5
+  ambientLight: 0.9
+  daylightShadowAtten: 0.5
+  enableSmoothLighting: 1
+  obscuranceMode: 1
+  obscuranceIntensity: 0.6
   enableReliefMapping: 0
   reliefStrength: 0.05
   reliefIterations: 10
   reliefIterationsBinarySearch: 5
   enableNormalMap: 0
-  enableFogSkyBlending: 1
+  enableFogSkyBlending: 0
   textureSize: 16
-  maxChunks: 5000
+  maxChunks: 3000
   hqFiltering: 0
   mipMapBias: 0.5
   doubleSidedGlass: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
   maxTreesPerFrame: 10
   maxBushesPerFrame: 10
   multiThreadGeneration: 1
-  lowMemoryMode: 1
+  lowMemoryMode: 0
   onlyRenderInFrustum: 1
   enableColliders: 1
   enableNavMesh: 0
@@ -1056,6 +1056,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adNotificator: {fileID: 690096442}
   fpsController: {fileID: 963791721}
+  icons:
+  - {fileID: 2800000, guid: ffd6594e1f6d4bb4caf6b1061db976f5, type: 3}
   _inventoryRows: 10
   _inventoryColumns: 10
 --- !u!114 &166871899
@@ -6815,7 +6817,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080997301}
-  m_LocalRotation: {x: -0.08242564, y: -0.6116048, z: 0.7842279, w: -0.06428222}
+  m_LocalRotation: {x: -0.14716962, y: -0.783248, z: 0.5690628, w: -0.20256166}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

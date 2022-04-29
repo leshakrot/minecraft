@@ -3,16 +3,42 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b11f622d92bb46c38fd5a3a2a3198f5, type: 3}
   m_Name: Desert
   m_EditorClassIdentifier: 
-  voxelTop: {fileID: 11400000, guid: 3721733f4fd16437ca2494763a1b374f, type: 2}
+  zones:
+  - elevationMin: 0
+    elevationMax: 0.5
+    altitudeMin: 0
+    altitudeMax: 127.5
+    moistureMin: 0
+    moistureMax: 0.15
+  - elevationMin: 0.5
+    elevationMax: 0.75
+    altitudeMin: 127.5
+    altitudeMax: 191.25
+    moistureMin: 0.15
+    moistureMax: 0.35
+  showInBiomeMap: 1
+  biomeMapColor: {r: 0, g: 0, b: 1, a: 1}
+  voxelTop: {fileID: 11400000, guid: 0b48ff36c991c4804aa548bbb19458d0, type: 2}
   voxelDirt: {fileID: 11400000, guid: 0b48ff36c991c4804aa548bbb19458d0, type: 2}
+  ores:
+  - ore: {fileID: 11400000, guid: 0a7701ce598c04d908cab9a8ebf0e708, type: 2}
+    probabilityMin: 0
+    probabilityMax: 0.15
+    depthMin: 0
+    depthMax: 0
+    veinMinSize: 2
+    veinMaxSize: 6
+    veinsCountMin: 1
+    veinsCountMax: 2
   treeDensity: 0.01
   trees:
   - tree: {fileID: 11400000, guid: 1af1c96406a464ba691634e6eba6c424, type: 2}
@@ -25,24 +51,3 @@ MonoBehaviour:
     probability: 0.25
   vegetationDensity: 0.05
   vegetation: []
-  zones:
-  - elevationMin: 0
-    elevationMax: 0.5
-    moistureMin: 0
-    moistureMax: 0.15
-  - elevationMin: 0.5
-    elevationMax: 0.75
-    moistureMin: 0.15
-    moistureMax: 0.35
-  ores:
-  - ore: {fileID: 11400000, guid: 0a7701ce598c04d908cab9a8ebf0e708, type: 2}
-    probabilityMin: 0
-    probabilityMax: 0.15
-    depthMin: 0
-    depthMax: 0
-    veinMinSize: 2
-    veinMaxSize: 6
-    veinsCountMin: 1
-    veinsCountMax: 2
-  biomeMapColor: {r: 0, g: 0, b: 1, a: 1}
-  showInBiomeMap: 1

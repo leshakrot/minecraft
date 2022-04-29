@@ -13,54 +13,28 @@ namespace VoxelPlay {
 		[SerializeField] private GameObject adNotificator;
 		[SerializeField] private GameObject fpsController;
 
+		[SerializeField] private Texture[] icons;
+
 		private YandexSDK sdk;
 
 		bool isAgreedWithRewardNotification = false;
 
 		bool isTNTSmallAchieved = false;
-		bool isTNTSmallAsked = false;
-
 		bool isTNTMediumAchieved = false;
-		bool isTNTMediumAsked = false;
-
 		bool isTNTLargeAchieved = false;
-		bool isTNTLargeAsked = false;
-
 		bool isSviborgAchieved = false;
-		bool isSviborgAsked = false;
-
 		bool isLeaves2Achieved = false;
-		bool isLeaves2Asked = false;
-
 		bool isCrimsonBoardsAchieved = false;
-		bool isCrimsonBoardsAsked = false;
-
 		bool isLeaves3Achieved = false;
-		bool isLeaves3Asked = false;
-
 		bool isBrickWallAchieved = false;
-		bool isBrickWallAsked = false;
-
 		bool isRawGoldAchieved = false;
-		bool isRawGoldAsked = false;
-
 		bool isAmethystAchieved = false;
-		bool isAmethystAsked = false;
-
 		bool isLapisAchieved = false;
-		bool isLapisAsked = false;
-
 		bool isLimeWoolAchieved = false;
-		bool isLimeWoolAsked = false;
-
 		bool isLightGrayWoolAchieved = false;
-		bool isLightGrayWoolAsked = false;
-
 		bool isGrayWoolAchieved = false;
-		bool isGrayWoolAsked = false;
 
 		int selectedItemIndexInInventory;
-		int previousSelectedItemIndexInInventory;
 
 		private void Start()
 		{
@@ -910,7 +884,6 @@ namespace VoxelPlay {
 
 		void InventoryImageClick (int inventoryImageIndex) {
 			int itemsPerPage = _inventoryRows * _inventoryColumns;
-			previousSelectedItemIndexInInventory = selectedItemIndexInInventory;
 			selectedItemIndexInInventory = inventoryCurrentPage * itemsPerPage + inventoryImageIndex;
 			VoxelPlayPlayer.instance.selectedItemIndex = selectedItemIndexInInventory;
 		}
@@ -1014,9 +987,15 @@ namespace VoxelPlay {
         {
 			Debug.Log("Agreed");
 			InventoryImageClick(selectedItemIndexInInventory);
-			if (selectedItemIndexInInventory == 4) isTNTSmallAchieved = true;
+			if (selectedItemIndexInInventory == 4)
+			{
+				isTNTSmallAchieved = true;
+			}
 			else if (selectedItemIndexInInventory == 53) isSviborgAchieved = true;
-			else if (selectedItemIndexInInventory == 64) isCrimsonBoardsAchieved = true;
+			else if (selectedItemIndexInInventory == 64)
+			{
+				isCrimsonBoardsAchieved = true;
+			}
 			else if (selectedItemIndexInInventory == 147) isAmethystAchieved = true;
 			else if (selectedItemIndexInInventory == 5) isTNTMediumAchieved = true;
 			else if (selectedItemIndexInInventory == 6) isTNTLargeAchieved = true;

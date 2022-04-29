@@ -39,9 +39,9 @@ MonoBehaviour:
   skyboxNightCubemap: {fileID: 0}
   dayCycleSpeed: 0
   setTimeAndAzimuth: 1
-  timeOfDay: 12.94
-  azimuth: 168
-  exposure: 1
+  timeOfDay: 10.8
+  azimuth: 151
+  exposure: 0.721
   cloudVoxel: {fileID: 11400000, guid: 7b4e0d11699534d52892e331bcfadbb1, type: 2}
   cloudCoverage: 110
   cloudAltitude: 150
