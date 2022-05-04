@@ -50,7 +50,7 @@ namespace VoxelPlay
         public bool enableInventory = true;
         public bool enableDebugWindow = true;
         public bool showFPS;
-        public string welcomeMessage = "<color=green>Welcome to <color=white>Voxel Play</color>! Press<color=yellow> F1 </color>for console commands.</color>";
+        public string welcomeMessage = "";
         public float welcomeMessageDuration = 5f;
         public GameObject UICanvasPrefab;
         public GameObject inputControllerPCPrefab, inputControllerMobilePrefab;
@@ -63,9 +63,9 @@ namespace VoxelPlay
         public int layerVoxels = 1;
         public int layerClouds = 1;
         public bool enableLoadingPanel = true;
-        public string loadingText = "Initializing...";
+        public string loadingText = "Подготовка, подождите пожалуйста...";
         public float initialWaitTime;
-        public string initialWaitText = "Loading World...";
+        public string initialWaitText = "Мир загружается...";
 
         public bool loadSavedGame;
         public string saveFilename = "save0001";

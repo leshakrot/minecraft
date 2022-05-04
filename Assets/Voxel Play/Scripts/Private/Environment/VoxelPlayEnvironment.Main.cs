@@ -737,17 +737,29 @@ namespace VoxelPlay
 
         void CheckSystemKeys ()
         {
-            if (enableConsole) {
-                if (Input.GetKey (KeyCode.LeftControl)) {
-                    if (Input.GetKeyDown (KeyCode.F3)) {
+            //if (enableConsole) {
+                    if (Input.GetKeyDown (KeyCode.U)) {
                         if (LoadGameBinary (false)) {
-                            ShowMessage ("<color=green>Game loaded successfully.</color>");
+                            ShowMessage ("<color=green>Игра успешно загружена.</color>");
                         }
-                    } else if (Input.GetKeyDown (KeyCode.F4)) {
+                    } else if (Input.GetKeyDown (KeyCode.I)) {
                         SaveGameBinary ();
-                        ShowMessage ("<color=green>Game saved. Press <color=yellow>Control + F3</color> to load.</color>");
-                    }
-                }
+                        ShowMessage("<color=green>Игра сохранена.</color>"); //Нажмите <color=yellow>U</color> чтобы её загрузить.</color>");
+                    } 
+            //}
+        }
+
+        public void SaveThisGame()
+        {
+            SaveGameBinary();
+            ShowMessage("<color=green>Игра сохранена.</color>"); //Нажмите <color=yellow>U</color> чтобы её загрузить.</color>");
+        }
+
+        public void LoadThisGame()
+        {
+            if (LoadGameBinary(false))
+            {
+                ShowMessage("<color=green>Игра успешно загружена.</color>");
             }
         }
 

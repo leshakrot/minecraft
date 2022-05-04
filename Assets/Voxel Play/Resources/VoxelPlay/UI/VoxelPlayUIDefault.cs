@@ -42,7 +42,7 @@ namespace VoxelPlay {
 			sdk.onRewardedAdReward += Reward;
 			adNotificator.SetActive(false);
 		}
-
+		
 		/// <summary>
 		/// Returns true if the console is visible
 		/// </summary>
