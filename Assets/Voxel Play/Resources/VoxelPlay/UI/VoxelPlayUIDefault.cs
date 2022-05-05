@@ -5,12 +5,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 namespace VoxelPlay {
 
 	public partial class VoxelPlayUIDefault : VoxelPlayUI {
 
+		[DllImport("__Internal")]
+		private static extern bool IsMobile();
+
 		[SerializeField] private GameObject adNotificator;
+		[SerializeField] private GameObject initiPanel;
+		[SerializeField] private GameObject mobileCanvas;
 		[SerializeField] private GameObject fpsController;
 
 		[SerializeField] private Texture[] icons;
@@ -36,13 +42,27 @@ namespace VoxelPlay {
 
 		int selectedItemIndexInInventory;
 
-		private void Start()
+		public bool isMobile()
 		{
+#if !UNITY_EDITOR && UNITY_WEBGL
+             return IsMobile();
+#endif
+			return false;
+		}
+
+		private void Start()
+		{	
 			sdk = YandexSDK.instance;
 			sdk.onRewardedAdReward += Reward;
 			adNotificator.SetActive(false);
+			mobileCanvas.SetActive(false);
+			if (isMobile())
+			{
+				mobileCanvas.SetActive(true);
+				initiPanel.SetActive(false);
+			}
 		}
-		
+
 		/// <summary>
 		/// Returns true if the console is visible
 		/// </summary>
@@ -960,6 +980,13 @@ namespace VoxelPlay {
 			}
 		}
 
+		public void ToggleInventory()
+        {
+			if(inventoryPlaceholder.activeSelf == false)
+				ToggleInventoryVisibility(true);
+			else ToggleInventoryVisibility(false);
+		}
+
 		void SelectItemFromVisibleInventorySlot (int itemIndex) {
 			int slotIndex = itemIndex + columnToShow * _inventoryRows;
 			int itemsPerPage = _inventoryRows * _inventoryColumns;
@@ -987,15 +1014,9 @@ namespace VoxelPlay {
         {
 			Debug.Log("Agreed");
 			InventoryImageClick(selectedItemIndexInInventory);
-			if (selectedItemIndexInInventory == 4)
-			{
-				isTNTSmallAchieved = true;
-			}
+			if (selectedItemIndexInInventory == 4) isTNTSmallAchieved = true;
 			else if (selectedItemIndexInInventory == 53) isSviborgAchieved = true;
-			else if (selectedItemIndexInInventory == 64)
-			{
-				isCrimsonBoardsAchieved = true;
-			}
+			else if (selectedItemIndexInInventory == 64) isCrimsonBoardsAchieved = true;
 			else if (selectedItemIndexInInventory == 147) isAmethystAchieved = true;
 			else if (selectedItemIndexInInventory == 5) isTNTMediumAchieved = true;
 			else if (selectedItemIndexInInventory == 6) isTNTLargeAchieved = true;
@@ -1007,6 +1028,7 @@ namespace VoxelPlay {
 			else if (selectedItemIndexInInventory == 160) isLimeWoolAchieved = true;
 			else if (selectedItemIndexInInventory == 165) isLightGrayWoolAchieved = true;
 			else if (selectedItemIndexInInventory == 167) isGrayWoolAchieved = true;
+
 			isAgreedWithRewardNotification = true;
 			sdk.ShowRewarded("block");
 			adNotificator.SetActive(false);

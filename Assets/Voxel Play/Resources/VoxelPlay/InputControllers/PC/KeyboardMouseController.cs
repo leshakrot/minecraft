@@ -17,11 +17,11 @@ namespace VoxelPlay
 
 			screenPos = Input.mousePosition;
 
-			mouseX =  Input.GetAxis ("Mouse X");
-			mouseY =  Input.GetAxis ("Mouse Y");
+			mouseX =  SimpleInput.GetAxis ("Mouse X");
+			mouseY =  SimpleInput.GetAxis ("Mouse Y");
 			mouseScrollWheel = Input.GetAxis ("Mouse ScrollWheel");
-			horizontalAxis = Input.GetAxis ("Horizontal");
-			verticalAxis = Input.GetAxis ("Vertical");
+			horizontalAxis = SimpleInput.GetAxis ("Horizontal");
+			verticalAxis = SimpleInput.GetAxis ("Vertical");
 
 			// Left mouse button
 			if (Input.GetMouseButtonDown (0)) {

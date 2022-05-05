@@ -253,6 +253,33 @@ namespace VoxelPlay
             ControllerUpdate ();
         }
 
+        public void SetBuildingMode()
+        {
+            env.SetBuildMode(!env.buildMode);
+            if (env.buildMode)
+            {
+                env.ShowMessage("<color=green>Включен <color=yellow>режим строительства</color>. Нажмите <color=white>TAB</color> чтобы открыть инвентарь или <color=white>B</color> для отмены.</color>");
+            }
+            else
+            {
+                env.ShowMessage("<color=green>Режим строительства <color=yellow>выключен</color>.</color>");
+            }
+        }
+
+        public void ToggleFlyMode()
+        {
+            isFlying = !isFlying;
+            if (isFlying)
+            {
+                m_Jumping = false;
+                env.ShowMessage("<color=green>Режим полета <color=yellow>включен</color></color>");
+            }
+            else
+            {
+                env.ShowMessage("<color=green>Режим полета <color=yellow>выключен</color></color>");
+            }
+        }
+
         protected virtual void UpdateWithCharacterController ()
         {
 
@@ -323,12 +350,7 @@ namespace VoxelPlay
                 }
 
                 if (input.GetButtonDown (InputButtonNames.Build)) {
-                    env.SetBuildMode (!env.buildMode);
-                    if (env.buildMode) {
-                        env.ShowMessage ("<color=green>Включен <color=yellow>режим строительства</color>. Нажмите <color=white>TAB</color> чтобы открыть инвентарь или <color=white>B</color> для отмены.</color>");
-                    } else {
-                        env.ShowMessage ("<color=green>Режим строительства <color=yellow>выключен</color>.</color>");
-                    }
+                    SetBuildingMode();
                 }
 
                 if (fire2Clicked && !leftAltPressed && !leftShiftPressed) {
@@ -341,13 +363,7 @@ namespace VoxelPlay
 
                 // Toggles Flight mode
                 if (input.GetButtonDown (InputButtonNames.Fly)) {
-                    isFlying = !isFlying;
-                    if (isFlying) {
-                        m_Jumping = false;
-                        env.ShowMessage ("<color=green>Режим полета <color=yellow>включен</color></color>");
-                    } else {
-                        env.ShowMessage ("<color=green>Режим полета <color=yellow>выключен</color></color>");
-                    }
+                    ToggleFlyMode();
                 }
 
                 if (isGrounded && !isCrouched && input.GetButtonDown (InputButtonNames.LeftControl)) {
@@ -577,6 +593,17 @@ namespace VoxelPlay
         private void FixedUpdate ()
         {
             FixedUpdateImpl ();
+        }
+
+        public void JoystickJump()
+        {
+            Vector3 pos = transform.position;
+            if (env.CheckCollision(new Vector3(pos.x + m_Camera.transform.forward.x, pos.y, pos.z + m_Camera.transform.forward.z)))
+            {
+                m_MoveDir.y = jumpSpeed * 0.5f;
+                m_Jumping = true;
+            }
+            m_Jump = false;
         }
 
         protected virtual void FixedUpdateImpl ()
