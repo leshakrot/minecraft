@@ -187,7 +187,8 @@ namespace VoxelPlay
 #if UNITY_ANDROID || UNITY_IOS
 			isMobilePlatform = true;
 #elif UNITY_WEBGL
-			isMobilePlatform = false;
+            if(isMobile()) isMobilePlatform = true;
+            else isMobilePlatform = false;
 #if UNITY_EDITOR
 			if (PlayerSettings.WebGL.memorySize<2000) PlayerSettings.WebGL.memorySize = 2000;
 #endif
@@ -202,7 +203,7 @@ namespace VoxelPlay
 #endif
 
 #if !UNITY_EDITOR
-            if (isMobilePlatform) {
+            if (isMobilePlatform || isMobile()) {
                 Application.lowMemory += Application_lowMemory;
             }
 #endif
@@ -246,7 +247,7 @@ namespace VoxelPlay
 #endif
 #endif
 
-            if (isMobilePlatform && applicationIsPlaying && adjustCameraFarClip) {
+            if (isMobilePlatform && applicationIsPlaying && adjustCameraFarClip && isMobile()) {
                 cameraMain.farClipPlane = Mathf.Min (400, _visibleChunksDistance * CHUNK_SIZE);
             }
             VoxelPlayUI oldUISystem = GetComponent<VoxelPlayUI> ();
@@ -279,13 +280,13 @@ namespace VoxelPlay
 
                 GameObject inputPrefab = null;
 #if UNITY_EDITOR
-                if (isMobilePlatform && previewTouchUIinEditor) {
+                if (isMobilePlatform && previewTouchUIinEditor && isMobile()) {
                     inputPrefab = inputControllerMobilePrefab;
                 } else {
                     inputPrefab = inputControllerPCPrefab;
                 }
 #else
-                if (isMobilePlatform) {
+                if (isMobilePlatform && isMobile()) {
                     inputPrefab = inputControllerMobilePrefab;
                 } else {
                     inputPrefab = inputControllerPCPrefab;

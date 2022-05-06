@@ -5,18 +5,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using System.Runtime.InteropServices;
 
 namespace VoxelPlay {
 
 	public partial class VoxelPlayUIDefault : VoxelPlayUI {
 
-		[DllImport("__Internal")]
-		private static extern bool IsMobile();
-
 		[SerializeField] private GameObject adNotificator;
 		[SerializeField] private GameObject initiPanel;
-		[SerializeField] private GameObject mobileCanvas;
 		[SerializeField] private GameObject fpsController;
 
 		[SerializeField] private Texture[] icons;
@@ -42,25 +37,11 @@ namespace VoxelPlay {
 
 		int selectedItemIndexInInventory;
 
-		public bool isMobile()
-		{
-#if !UNITY_EDITOR && UNITY_WEBGL
-             return IsMobile();
-#endif
-			return false;
-		}
-
 		private void Start()
 		{	
 			sdk = YandexSDK.instance;
 			sdk.onRewardedAdReward += Reward;
 			adNotificator.SetActive(false);
-			mobileCanvas.SetActive(false);
-			if (isMobile())
-			{
-				mobileCanvas.SetActive(true);
-				initiPanel.SetActive(false);
-			}
 		}
 
 		/// <summary>

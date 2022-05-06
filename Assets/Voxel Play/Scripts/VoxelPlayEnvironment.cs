@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace VoxelPlay
 {
@@ -12,7 +13,8 @@ namespace VoxelPlay
     [HelpURL ("https://kronnect.freshdesk.com/support/solutions/articles/42000001712-voxel-play-environment")]
     public partial class VoxelPlayEnvironment : MonoBehaviour
     {
-
+        [DllImport("__Internal")]
+        private static extern bool IsMobile();
         public enum EditorRenderDetail
         {
             Draft = 0,
@@ -69,6 +71,14 @@ namespace VoxelPlay
 
         public bool loadSavedGame;
         public string saveFilename = "save0001";
+
+        public bool isMobile()
+        {
+#if !UNITY_EDITOR && UNITY_WEBGL
+             return IsMobile();
+#endif
+            return false;
+        }
 
         /// <summary>
         /// Light spread from voxel to voxel and attenuates as it goes underground
