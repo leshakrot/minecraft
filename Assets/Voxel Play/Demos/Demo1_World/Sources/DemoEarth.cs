@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using VoxelPlay;
+using System.Runtime.InteropServices;
 
 namespace VoxelPlayDemos
 {
 
     public class DemoEarth : MonoBehaviour
     {
+        [DllImport("__Internal")]
+        private static extern bool IsMobile();
 
         public GameObject deerPrefab;
         public GameObject bouncingSpherePrefab;
@@ -26,6 +29,13 @@ namespace VoxelPlayDemos
 
         }
 
+        public bool isMobile()
+        {
+#if !UNITY_EDITOR && UNITY_WEBGL
+             return IsMobile();
+#endif
+            return false;
+        }
 
         void OnInitialized ()
         {
@@ -63,7 +73,7 @@ namespace VoxelPlayDemos
 
         void SpecialKeys ()
         {
-            env.ShowMessage ("<color=green><color=yellow>R </color>Брутальный Свиборг, <color=yellow>Y </color>Легендарный Гнум, <color=yellow>TAB</color> Инвентарь, <color=yellow>B</color> Режим строительства, <color=yellow>F</color> Полёт</color>", 20, true);
+            if(!isMobile()) env.ShowMessage ("<color=green><color=yellow>R </color>Брутальный Свиборг, <color=yellow>Y </color>Легендарный Гнум, <color=yellow>TAB</color> Инвентарь, <color=yellow>B</color> Режим строительства, <color=yellow>F</color> Полёт</color>", 20, true);
         }
 
         void Update ()

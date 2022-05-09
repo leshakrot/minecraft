@@ -500,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fxRoot: {fileID: 0}
   particlePoolSize: 1000
-  voxelDefinitionsCount: 114
+  voxelDefinitionsCount: 115
   enableURP: 0
   world: {fileID: 11400000, guid: 9c8445380140245d0b4806a2ee8972b6, type: 2}
   enableBuildMode: 1
@@ -508,7 +508,7 @@ MonoBehaviour:
   buildMode: 0
   renderInEditor: 1
   renderInEditorLowPriority: 0
-  renderInEditorDetail: 0
+  renderInEditorDetail: 1
   renderInEditorAreaCenter: {x: 0, y: 0, z: 0}
   renderInEditorAreaSize: {x: 512, y: 64, z: 512}
   characterController: {fileID: 963791725}
@@ -535,7 +535,7 @@ MonoBehaviour:
     \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430..."
   initialWaitTime: 2
   initialWaitText: "\u041C\u0438\u0440 \u0437\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u0442\u0441\u044F..."
-  loadSavedGame: 0
+  loadSavedGame: 1
   saveFilename: sampleWorld
   globalIllumination: 1
   ambientLight: 0.527
@@ -583,7 +583,7 @@ MonoBehaviour:
   maxTreesPerFrame: 10
   maxBushesPerFrame: 10
   multiThreadGeneration: 1
-  lowMemoryMode: 0
+  lowMemoryMode: 1
   onlyRenderInFrustum: 1
   enableColliders: 1
   enableNavMesh: 0
@@ -1055,7 +1055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adNotificator: {fileID: 690096442}
-  initiPanel: {fileID: 875875410}
   fpsController: {fileID: 963791721}
   icons:
   - {fileID: 2800000, guid: ffd6594e1f6d4bb4caf6b1061db976f5, type: 3}
@@ -3508,7 +3507,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646205121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.92, y: 0.92, z: 0.92}
   m_Children:
@@ -3516,10 +3515,10 @@ RectTransform:
   m_Father: {fileID: 1472233672}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 75.2, y: -53.8}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -55.2, y: -53.799973}
+  m_SizeDelta: {x: 112.5313, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &646205123
 MonoBehaviour:
@@ -9565,7 +9564,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510198906}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.92, y: 0.92, z: 0.92}
   m_Children:
@@ -9573,10 +9572,10 @@ RectTransform:
   m_Father: {fileID: 1472233672}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 75.2, y: -22.411789}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -55.200024, y: -22.411789}
+  m_SizeDelta: {x: 112.5313, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510198908
 MonoBehaviour:

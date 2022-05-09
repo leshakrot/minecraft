@@ -73,7 +73,7 @@ MonoBehaviour:
   dropItemLifeTime: 10
   dropItemScale: 0.25
   icon: {fileID: 0}
-  textureSample: {fileID: 2800000, guid: 483cf0ef4171b534bb0248f5385903fb, type: 3}
+  textureSample: {fileID: 2800000, guid: 351a120b5abad5e42947d6d7910dda36, type: 3}
   navigatable: 0
   windAnimation: 1
   model: {fileID: 0}
@@ -98,8 +98,8 @@ MonoBehaviour:
   height: 13
   playerDamage: 0
   playerDamageDelay: 2
-  triggerCollapse: 1
-  willCollapse: 1
+  triggerCollapse: 0
+  willCollapse: 0
   ignoresRayCast: 0
   generateColliders: 0
   highlightOffset: {x: 0, y: 0, z: 0}

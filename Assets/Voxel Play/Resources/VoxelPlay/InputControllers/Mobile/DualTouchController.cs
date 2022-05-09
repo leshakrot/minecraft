@@ -12,8 +12,8 @@ namespace VoxelPlay
     public class DualTouchController : VoxelPlayInputController
     {
 
-        public float dragThreshold = 1f;
-        public float rotationSpeed = 0.3f;
+        public float dragThreshold = 10f;
+        public float rotationSpeed = 0.6f;
         public float alpha = 0.7f;
         public float fadeInSpeed = 2f;
 
@@ -30,6 +30,11 @@ namespace VoxelPlay
             Transform t = transform.Find ("ButtonMode");
             if (t != null) {
                 buttonModeRT = t.GetComponent<RectTransform> ();
+            }
+            t = transform.Find("ButtonMode");
+            if (t != null)
+            {
+                buttonModeRT = t.GetComponent<RectTransform>();
             }
 
             t = transform.Find("ButtonInventory");
@@ -90,37 +95,31 @@ namespace VoxelPlay
 
             switch (t.phase) {
             case TouchPhase.Began:
-
-                    //DONT FORGET RETURN .Down BACK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //DONT FORGET RETURN .Down BACK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //DONT FORGET RETURN .Down BACK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //DONT FORGET RETURN .Down BACK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //DONT FORGET RETURN .Down BACK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    if (RectTransformUtility.RectangleContainsScreenPoint(buttonModeRT, t.position, null))
+                /*if (RectTransformUtility.RectangleContainsScreenPoint(buttonModeRT, t.position, null))
                 {
-                    buttons[(int)InputButtonNames.Build].pressState = InputButtonPressState.Up;
-                    return;
+                        buttons[(int)InputButtonNames.Build].pressState = InputButtonPressState.Down;
+                        return;
                 }
                 if (RectTransformUtility.RectangleContainsScreenPoint(buttonInventoryRT, t.position, null))
                 {
-                    buttons[(int)InputButtonNames.Inventory].pressState = InputButtonPressState.Up;
-                    return;
+                        buttons[(int)InputButtonNames.Inventory].pressState = InputButtonPressState.Down;
+                        return;
                 }
                 if (RectTransformUtility.RectangleContainsScreenPoint(buttonFlyRT, t.position, null))
                 {
-                    buttons[(int)InputButtonNames.Fly].pressState = InputButtonPressState.Up;
-                    return;
+                        buttons[(int)InputButtonNames.Fly].pressState = InputButtonPressState.Down;
+                        return;
                 }
                 if (RectTransformUtility.RectangleContainsScreenPoint(buttonJumpRT, t.position, null))
                 {
-                    buttons[(int)InputButtonNames.Jump].pressState = InputButtonPressState.Up;
-                    return;
+                        buttons[(int)InputButtonNames.Jump].pressState = InputButtonPressState.Down;
+                        return;
                 }
                 if (RectTransformUtility.RectangleContainsScreenPoint (buttonBuildRT, t.position, null)) 
                 {
-                    buttons [(int)InputButtonNames.Button2].pressState = InputButtonPressState.Up;
-                    return;
-                }
+                        buttons [(int)InputButtonNames.Button2].pressState = InputButtonPressState.Down;
+                        return;
+                }*/
                 
 
                 // Left half of screen touched
@@ -163,7 +162,7 @@ namespace VoxelPlay
                     if (deltaY < 0)
                         deltaY = 0;
                 } else if (deltaY < 0) {
-                    deltaY += dragThreshold;
+                    deltaY += dragThreshold; 
                     if (deltaY > 0)
                         deltaY = 0;
                 }
@@ -175,36 +174,37 @@ namespace VoxelPlay
             case TouchPhase.Ended:
 
                 mouseX = mouseY = 0;
-                if (RectTransformUtility.RectangleContainsScreenPoint(buttonModeRT, t.position, null))
-                {
-                    buttons[(int)InputButtonNames.Build].pressState = InputButtonPressState.Up;
-                    return;
-                }
-                if (RectTransformUtility.RectangleContainsScreenPoint (buttonBuildRT, t.position, null)) 
-                {
-                    buttons [(int)InputButtonNames.Button2].pressState = InputButtonPressState.Up;
-                    return;
-                }
-                if (RectTransformUtility.RectangleContainsScreenPoint (buttonJumpRT, t.position, null)) 
-                {
-                    buttons [(int)InputButtonNames.Jump].pressState = InputButtonPressState.Up;
-                    return;
-                }
-                if (RectTransformUtility.RectangleContainsScreenPoint (buttonFlyRT, t.position, null)) 
-                {
-                    buttons [(int)InputButtonNames.Fly].pressState = InputButtonPressState.Up;
-                    return;
-                }
-                if (RectTransformUtility.RectangleContainsScreenPoint (buttonInventoryRT, t.position, null)) 
-                {
-                    buttons [(int)InputButtonNames.Inventory].pressState = InputButtonPressState.Up;
-                    return;
-                }
-                if (!dragged && Time.time - pressTime < 0.3f) {
-                    buttons [(int)InputButtonNames.Button1].pressState = InputButtonPressState.Down; // click
-                } else {
+                
+                if (!dragged && Time.time - pressTime < 0.3f) { // < 0.3f was here
+                        if (RectTransformUtility.RectangleContainsScreenPoint(buttonModeRT, t.position, null))
+                        {
+                            buttons[(int)InputButtonNames.Build].pressState = InputButtonPressState.Down;
+                            return;
+                        }
+                        if (RectTransformUtility.RectangleContainsScreenPoint(buttonBuildRT, t.position, null))
+                        {
+                            buttons[(int)InputButtonNames.Button2].pressState = InputButtonPressState.Down;
+                            return;
+                        }
+                        if (RectTransformUtility.RectangleContainsScreenPoint(buttonJumpRT, t.position, null))
+                        {
+                            buttons[(int)InputButtonNames.Jump].pressState = InputButtonPressState.Down;
+                            return;
+                        }
+                        if (RectTransformUtility.RectangleContainsScreenPoint(buttonFlyRT, t.position, null))
+                        {
+                            buttons[(int)InputButtonNames.Fly].pressState = InputButtonPressState.Down;
+                            return;
+                        }
+                        if (RectTransformUtility.RectangleContainsScreenPoint(buttonInventoryRT, t.position, null))
+                        {
+                            buttons[(int)InputButtonNames.Inventory].pressState = InputButtonPressState.Down;
+                            return;
+                        }
+                        buttons [(int)InputButtonNames.Button1].pressState = InputButtonPressState.Down; // click
+                    } else {
                     buttons [(int)InputButtonNames.Button1].pressState = InputButtonPressState.Up;
-                }
+                    }
                 break;
             case TouchPhase.Stationary:
 

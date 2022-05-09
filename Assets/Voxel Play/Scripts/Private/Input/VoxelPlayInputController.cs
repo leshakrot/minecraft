@@ -98,7 +98,7 @@ namespace VoxelPlay {
         /// <summary>
         /// Maximum time in seconds between button press and release to inform a click
         /// </summary>
-        public float clickTime = 1f;
+        public float clickTime = 0.2f;
 
 		[NonSerialized]
 		public bool initialized;

@@ -5,16 +5,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 namespace VoxelPlay {
 
 	public partial class VoxelPlayUIDefault : VoxelPlayUI {
 
 		[SerializeField] private GameObject adNotificator;
-		[SerializeField] private GameObject initiPanel;
 		[SerializeField] private GameObject fpsController;
 
 		[SerializeField] private Texture[] icons;
+
+		[DllImport("__Internal")]
+		private static extern bool IsMobile();
 
 		private YandexSDK sdk;
 
@@ -59,6 +62,13 @@ namespace VoxelPlay {
 		[SerializeField]
 		int _inventoryRows = 10;
 
+		public bool isMobile()
+		{
+#if !UNITY_EDITOR && UNITY_WEBGL
+             return IsMobile();
+#endif
+			return false;
+		}
 		public virtual int inventoryRows {
 			get { return _inventoryRows; }
 			set {
@@ -948,13 +958,15 @@ namespace VoxelPlay {
 			if (inventoryTitle != null) {
 				if (playerItemsCount == 4) {
 					inventoryTitle.SetActive (true);
-					inventoryTitleText.text = "Чтобы войти в режим строительства - нажмите TAB, а затем B";
+					if(!isMobile()) inventoryTitleText.text = "Чтобы войти в режим строительства - нажмите TAB, а затем B";
+					else inventoryTitleText.text = "";
 				} else if (playerItemsCount > itemsPerPage) {
 					inventoryTitle.SetActive (true);
 					int totalPages = (playerItemsCount - 1) / itemsPerPage + 1;
 					if (totalPages < 0)
 						totalPages = 1;
-					inventoryTitleText.text = "Страница " + (inventoryCurrentPage + 1) + "/" + totalPages + ". TAB - следующая страница / выход";
+					if(!isMobile()) inventoryTitleText.text = "Страница " + (inventoryCurrentPage + 1) + "/" + totalPages + ". TAB - следующая страница / выход";
+					else inventoryTitleText.text = "Страница " + (inventoryCurrentPage + 1) + "/" + totalPages;
 				} else {
 					inventoryTitle.SetActive (false);
 				}

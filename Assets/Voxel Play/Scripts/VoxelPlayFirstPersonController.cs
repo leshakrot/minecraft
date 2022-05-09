@@ -258,7 +258,7 @@ namespace VoxelPlay
             env.SetBuildMode(!env.buildMode);
             if (env.buildMode)
             {
-                env.ShowMessage("<color=green>Включен <color=yellow>режим строительства</color>. Нажмите <color=white>TAB</color> чтобы открыть инвентарь или <color=white>B</color> для отмены.</color>");
+                env.ShowMessage("<color=green>Включен <color=yellow>режим строительства</color>.</color>");
             }
             else
             {
@@ -428,7 +428,7 @@ namespace VoxelPlay
                 if (input.GetButtonDown (InputButtonNames.Build)) {
                     env.SetBuildMode (!env.buildMode);
                     if (env.buildMode) {
-                        env.ShowMessage ("<color=green>Включен <color=yellow>режим строительства</color>. Нажмите <color=white>TAB</color> чтобы открыть инвентарь или <color=white>B</color> для отмены.</color>");
+                        env.ShowMessage ("<color=green>Включен <color=yellow>режим строительства</color>.");
                     } else {
                         env.ShowMessage ("<color=green>Режим строительства <color=yellow>выключен</color>.</color>");
                     }
