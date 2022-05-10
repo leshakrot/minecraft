@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -18,6 +19,7 @@ MonoBehaviour:
   steps:
   - enabled: 1
     operation: 0
+    description: 
     noiseTexture: {fileID: 2800000, guid: a098096f8833147feac87b2948d79b92, type: 3}
     frecuency: 0.1
     noiseRangeMin: 0
@@ -36,6 +38,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 1
+    description: 
     noiseTexture: {fileID: 2800000, guid: 6dd155b02d17142c79ea0aaf630bf92b, type: 3}
     frecuency: 0.5
     noiseRangeMin: 0
@@ -54,6 +57,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 300
+    description: 
     noiseTexture: {fileID: 0}
     frecuency: 0
     noiseRangeMin: 0
@@ -72,6 +76,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 104
+    description: 
     noiseTexture: {fileID: 0}
     frecuency: 0
     noiseRangeMin: 0
@@ -90,6 +95,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 202
+    description: 
     noiseTexture: {fileID: 0}
     frecuency: 0
     noiseRangeMin: 0
@@ -108,6 +114,7 @@ MonoBehaviour:
     max: 1
   - enabled: 1
     operation: 104
+    description: 
     noiseTexture: {fileID: 0}
     frecuency: 0
     noiseRangeMin: 0
@@ -126,6 +133,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 204
+    description: 
     noiseTexture: {fileID: 0}
     frecuency: 0
     noiseRangeMin: 0
@@ -144,6 +152,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 0
+    description: 
     noiseTexture: {fileID: 2800000, guid: 6dd155b02d17142c79ea0aaf630bf92b, type: 3}
     frecuency: 0.3
     noiseRangeMin: 0
@@ -162,6 +171,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 104
+    description: 
     noiseTexture: {fileID: 0}
     frecuency: 0
     noiseRangeMin: 0
@@ -180,6 +190,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 301
+    description: 
     noiseTexture: {fileID: 0}
     frecuency: 0
     noiseRangeMin: 0
@@ -198,6 +209,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 204
+    description: 
     noiseTexture: {fileID: 0}
     frecuency: 0
     noiseRangeMin: 0
@@ -216,6 +228,7 @@ MonoBehaviour:
     max: 0
   - enabled: 1
     operation: 105
+    description: 
     noiseTexture: {fileID: 0}
     frecuency: 0
     noiseRangeMin: 0

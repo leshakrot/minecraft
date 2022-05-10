@@ -3156,6 +3156,13 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 4294967295
     rotation: 0
+  - voxelIndex: 2091
+    voxelDefinition: {fileID: 11400000, guid: c937b4a2e083743b688d2005b10b83df, type: 2}
+    isEmpty: 0
+    color:
+      serializedVersion: 2
+      rgba: 4294967295
+    rotation: 270
   - voxelIndex: 2102
     voxelDefinition: {fileID: 11400000, guid: 29552f4f6b8024db1b0382f84d1bb493, type: 2}
     isEmpty: 0
@@ -3163,6 +3170,13 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 4294967295
     rotation: 0
+  - voxelIndex: 2109
+    voxelDefinition: {fileID: 11400000, guid: c937b4a2e083743b688d2005b10b83df, type: 2}
+    isEmpty: 0
+    color:
+      serializedVersion: 2
+      rgba: 4294967295
+    rotation: 270
   - voxelIndex: 2120
     voxelDefinition: {fileID: 11400000, guid: 29552f4f6b8024db1b0382f84d1bb493, type: 2}
     isEmpty: 0
@@ -3170,6 +3184,13 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 4294967295
     rotation: 0
+  - voxelIndex: 2127
+    voxelDefinition: {fileID: 11400000, guid: c937b4a2e083743b688d2005b10b83df, type: 2}
+    isEmpty: 0
+    color:
+      serializedVersion: 2
+      rgba: 4294967295
+    rotation: 270
   - voxelIndex: 2138
     voxelDefinition: {fileID: 11400000, guid: 29552f4f6b8024db1b0382f84d1bb493, type: 2}
     isEmpty: 0
@@ -3913,7 +3934,7 @@ MonoBehaviour:
       rgba: 4294967295
     rotation: 0
   - voxelIndex: 2744
-    voxelDefinition: {fileID: 11400000, guid: 53bea8a98805248f392ddd8d89787431, type: 2}
+    voxelDefinition: {fileID: 11400000, guid: 29552f4f6b8024db1b0382f84d1bb493, type: 2}
     isEmpty: 0
     color:
       serializedVersion: 2

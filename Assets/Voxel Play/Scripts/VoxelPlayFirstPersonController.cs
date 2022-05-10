@@ -10,7 +10,7 @@ namespace VoxelPlay
     public partial class VoxelPlayFirstPersonController : VoxelPlayCharacterControllerBase
     {
 
-        
+        private YandexSDK sdk;
 
         [Header ("Movement")]
         public float walkSpeed = 5f;
@@ -273,6 +273,7 @@ namespace VoxelPlay
             {
                 m_Jumping = false;
                 env.ShowMessage("<color=green>Режим полета <color=yellow>включен</color></color>");
+                sdk.ShowInterstitial();
             }
             else
             {
@@ -286,6 +287,12 @@ namespace VoxelPlay
             CheckFootfalls ();
 
             RotateView ();
+
+            if (transform.position.y < -20f)
+            {
+                isFlying = true;
+                env.ShowMessage("<color=green>Режим полета <color=yellow>включен</color>, потому что вы провалились под землю.</color>");
+            }
 
             if (orbitMode)
                 isFlying = true;
@@ -341,6 +348,7 @@ namespace VoxelPlay
                         }
                     }
                     if (fire2Clicked) {
+                        sdk.ShowInterstitial();
                         DoHit (0);
                     }
                 }

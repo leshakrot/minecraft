@@ -11,7 +11,7 @@ namespace VoxelPlay {
 
 	public partial class VoxelPlayUIDefault : VoxelPlayUI {
 
-		[SerializeField] private GameObject adNotificator;
+        [SerializeField] private GameObject adNotificator;
 		[SerializeField] private GameObject fpsController;
 
 		[SerializeField] private Texture[] icons;
@@ -975,8 +975,11 @@ namespace VoxelPlay {
 
 		public void ToggleInventory()
         {
-			if(inventoryPlaceholder.activeSelf == false)
+			if (inventoryPlaceholder.activeSelf == false)
+			{
 				ToggleInventoryVisibility(true);
+				sdk.ShowInterstitial();
+			}
 			else ToggleInventoryVisibility(false);
 		}
 

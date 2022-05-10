@@ -71,7 +71,7 @@ MonoBehaviour:
   dropItemLifeTime: 10
   dropItemScale: 0.25
   icon: {fileID: 0}
-  textureSample: {fileID: 2800000, guid: 77da1a5b1906748fcb976db32a43a998, type: 3}
+  textureSample: {fileID: 2800000, guid: 5a7b46a731ec46444926ad1ce72b0967, type: 3}
   navigatable: 1
   windAnimation: 0
   model: {fileID: 0}
