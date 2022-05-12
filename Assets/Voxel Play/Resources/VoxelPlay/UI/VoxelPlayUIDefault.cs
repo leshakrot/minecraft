@@ -60,7 +60,7 @@ namespace VoxelPlay {
 		}
 
 		[SerializeField]
-		int _inventoryRows = 10;
+		int _inventoryRows = 6;
 
 		public bool isMobile()
 		{
@@ -209,7 +209,9 @@ namespace VoxelPlay {
 				} else if (input.GetButtonDown(InputButtonNames.Escape)) {
 					ToggleConsoleVisibility (false);
 					ToggleInventoryVisibility (false);
-				} else if (env.enableInventory && input.GetButtonDown (InputButtonNames.Inventory)) { 
+					//sdk.ShowInterstitial();
+				} else if (env.enableInventory && input.GetButtonDown (InputButtonNames.Inventory)) {
+					//sdk.ShowInterstitial();
 					leftShiftPressed = false;
 					if (!inventoryPlaceholder.activeSelf) {
 						ToggleInventoryVisibility (true);
@@ -978,7 +980,7 @@ namespace VoxelPlay {
 			if (inventoryPlaceholder.activeSelf == false)
 			{
 				ToggleInventoryVisibility(true);
-				sdk.ShowInterstitial();
+				//sdk.ShowInterstitial();
 			}
 			else ToggleInventoryVisibility(false);
 		}
@@ -1010,20 +1012,21 @@ namespace VoxelPlay {
         {
 			Debug.Log("Agreed");
 			InventoryImageClick(selectedItemIndexInInventory);
+			Debug.Log(selectedItemIndexInInventory);
 			if (selectedItemIndexInInventory == 4) isTNTSmallAchieved = true;
-			else if (selectedItemIndexInInventory == 53) isSviborgAchieved = true;
-			else if (selectedItemIndexInInventory == 64) isCrimsonBoardsAchieved = true;
-			else if (selectedItemIndexInInventory == 147) isAmethystAchieved = true;
 			else if (selectedItemIndexInInventory == 5) isTNTMediumAchieved = true;
 			else if (selectedItemIndexInInventory == 6) isTNTLargeAchieved = true;
 			else if (selectedItemIndexInInventory == 31) isLeaves2Achieved = true;
 			else if (selectedItemIndexInInventory == 47) isLeaves3Achieved = true;
 			else if (selectedItemIndexInInventory == 48) isBrickWallAchieved = true;
-			else if (selectedItemIndexInInventory == 161) isRawGoldAchieved = true;
-			else if (selectedItemIndexInInventory == 159) isLapisAchieved = true;
-			else if (selectedItemIndexInInventory == 160) isLimeWoolAchieved = true;
-			else if (selectedItemIndexInInventory == 165) isLightGrayWoolAchieved = true;
-			else if (selectedItemIndexInInventory == 167) isGrayWoolAchieved = true;
+			else if (selectedItemIndexInInventory == 53) isSviborgAchieved = true;
+			else if (selectedItemIndexInInventory == 124) isCrimsonBoardsAchieved = true;
+			else if (selectedItemIndexInInventory == 137) isAmethystAchieved = true;
+			else if (selectedItemIndexInInventory == 149) isLapisAchieved = true;
+			else if (selectedItemIndexInInventory == 150) isLimeWoolAchieved = true;
+			else if (selectedItemIndexInInventory == 151) isRawGoldAchieved = true;	
+			else if (selectedItemIndexInInventory == 155) isLightGrayWoolAchieved = true;
+			else if (selectedItemIndexInInventory == 157) isGrayWoolAchieved = true;
 
 			isAgreedWithRewardNotification = true;
 			sdk.ShowRewarded("block");

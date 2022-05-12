@@ -348,7 +348,6 @@ namespace VoxelPlay
                         }
                     }
                     if (fire2Clicked) {
-                        sdk.ShowInterstitial();
                         DoHit (0);
                     }
                 }
