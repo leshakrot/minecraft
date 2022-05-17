@@ -107,6 +107,7 @@ namespace VoxelPlay
 
         void Start ()
         {
+            SetBuildingMode();
             base.Init ();
             m_Camera = GetComponentInChildren<Camera> ();
             if (m_Camera != null) {
@@ -255,15 +256,15 @@ namespace VoxelPlay
 
         public void SetBuildingMode()
         {
-            env.SetBuildMode(!env.buildMode);
-            if (env.buildMode)
+            env.SetBuildMode(true);
+            /*if (env.buildMode)
             {
                 env.ShowMessage("<color=green>Включен <color=yellow>режим строительства</color>.</color>");
             }
             else
             {
                 env.ShowMessage("<color=green>Режим строительства <color=yellow>выключен</color>.</color>");
-            }
+            }*/
         }
 
         public void ToggleFlyMode()
@@ -273,7 +274,6 @@ namespace VoxelPlay
             {
                 m_Jumping = false;
                 env.ShowMessage("<color=green>Режим полета <color=yellow>включен</color></color>");
-                sdk.ShowInterstitial();
             }
             else
             {
@@ -356,9 +356,9 @@ namespace VoxelPlay
                     player.SetSelectedItem (crosshairHitInfo.voxel.type);
                 }
 
-                if (input.GetButtonDown (InputButtonNames.Build)) {
+                /*if (input.GetButtonDown (InputButtonNames.Build)) {
                     SetBuildingMode();
-                }
+                }*/
 
                 if (fire2Clicked && !leftAltPressed && !leftShiftPressed) {
 #if UNITY_EDITOR

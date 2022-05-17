@@ -27,17 +27,7 @@ namespace VoxelPlay
 
         protected override bool Initialize ()
         {
-            Transform t = transform.Find ("ButtonMode");
-            if (t != null) {
-                buttonModeRT = t.GetComponent<RectTransform> ();
-            }
-            t = transform.Find("ButtonMode");
-            if (t != null)
-            {
-                buttonModeRT = t.GetComponent<RectTransform>();
-            }
-
-            t = transform.Find("ButtonInventory");
+            Transform t = transform.Find("ButtonInventory");
             if (t != null)
             {
                 buttonInventoryRT = t.GetComponent<RectTransform>();
@@ -176,11 +166,6 @@ namespace VoxelPlay
                 mouseX = mouseY = 0;
                 
                 if (!dragged && Time.time - pressTime < 0.3f) { // < 0.3f was here
-                        if (RectTransformUtility.RectangleContainsScreenPoint(buttonModeRT, t.position, null))
-                        {
-                            buttons[(int)InputButtonNames.Build].pressState = InputButtonPressState.Down;
-                            return;
-                        }
                         if (RectTransformUtility.RectangleContainsScreenPoint(buttonBuildRT, t.position, null))
                         {
                             buttons[(int)InputButtonNames.Button2].pressState = InputButtonPressState.Down;

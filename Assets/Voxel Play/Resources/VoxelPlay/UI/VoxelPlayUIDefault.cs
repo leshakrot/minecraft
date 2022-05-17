@@ -755,7 +755,7 @@ namespace VoxelPlay {
 				if (firstTimeInventory) {
 					firstTimeInventory = false;
 					if (!env.isMobilePlatform) {
-						env.ShowMessage ("<color=green>Нажмите на блок который хотите выбрать</color>");
+						env.ShowMessage ("<color=green>Нажмите на блок, который хотите выбрать</color>");
 					}
 				}
 			}

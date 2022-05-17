@@ -40,7 +40,7 @@ namespace VoxelPlay
         public WorldDefinition world;
         public bool enableBuildMode = true;
         public bool constructorMode;
-        public bool buildMode;
+        public bool buildMode = true;
         public bool renderInEditor;
         public bool renderInEditorLowPriority = true;
         public EditorRenderDetail renderInEditorDetail = EditorRenderDetail.Draft;
@@ -65,7 +65,7 @@ namespace VoxelPlay
         public int layerVoxels = 1;
         public int layerClouds = 1;
         public bool enableLoadingPanel = true;
-        public string loadingText = "Подготовка, подождите пожалуйста...";
+        public string loadingText = "Подготовка, подождите, пожалуйста...";
         public float initialWaitTime;
         public string initialWaitText = "Мир загружается...";
 
@@ -3668,7 +3668,7 @@ namespace VoxelPlay
         /// Shows a custom message into the status text.
         /// </summary>
         /// <param name="txt">Text.</param>
-        public void ShowMessage (string txt, float displayDuration = 15, bool flashEffect = false, bool openConsole = false, bool allowDuplicatedMessage = false)
+        public void ShowMessage (string txt, float displayDuration = 5, bool flashEffect = false, bool openConsole = false, bool allowDuplicatedMessage = false)
         {
             if (!allowDuplicatedMessage && lastMessage == txt)
                 return;
