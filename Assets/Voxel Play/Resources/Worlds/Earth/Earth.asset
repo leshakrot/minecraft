@@ -33,8 +33,8 @@ MonoBehaviour:
   detailGenerators:
   - {fileID: 11400000, guid: 396d2f96698424fec80dec86e13b70d0, type: 2}
   - {fileID: 11400000, guid: 7079cfd4887c141b4b319f4783afe7ff, type: 2}
-  skyboxDesktop: 1
-  skyboxMobile: 3
+  skyboxDesktop: 0
+  skyboxMobile: 0
   skyboxDayCubemap: {fileID: 0}
   skyboxNightCubemap: {fileID: 0}
   dayCycleSpeed: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   cloudVoxel: {fileID: 11400000, guid: 7b4e0d11699534d52892e331bcfadbb1, type: 2}
   cloudCoverage: 110
   cloudAltitude: 150
-  skyTint: {r: 0.50792074, g: 0.48300108, b: 0.509434, a: 1}
+  skyTint: {r: 0.9150943, g: 0.80631894, b: 0.9150943, a: 1}
   lightScattering: 0.01
   lightIntensityMultiplier: 2
   lightSunAttenuation: 1

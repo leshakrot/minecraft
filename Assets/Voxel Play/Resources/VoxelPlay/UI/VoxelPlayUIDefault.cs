@@ -53,14 +53,15 @@ namespace VoxelPlay {
 			sdk.onRewardedAdReward += Reward;
 			adNotificator.SetActive(false);
 
-			for(int i = 0; i < 11; i++)
+			/*for (int i = 0; i < 3; i++)
+			{
+				rewardableItems[i].icon = itemSpritesBeforeAd[i];
+			}
+
+			for (int i = 0; i < 11; i++)
             {
 				rewardableVoxels[i].textureSide = voxelSpritesBeforeAd[i];
-			}
-			for(int i = 0; i < 3; i++)
-            {
-				rewardableItems[i].icon = itemSpritesBeforeAd[i];
-            }
+			}*/
 		}
 
 		/// <summary>
@@ -227,7 +228,7 @@ namespace VoxelPlay {
 					ToggleInventoryVisibility (false);
 					//sdk.ShowInterstitial();
 				} else if (env.enableInventory && input.GetButtonDown (InputButtonNames.Inventory)) {
-					//sdk.ShowInterstitial();
+					sdk.ShowInterstitial();
 					leftShiftPressed = false;
 					if (!inventoryPlaceholder.activeSelf) {
 						ToggleInventoryVisibility (true);
@@ -1030,107 +1031,107 @@ namespace VoxelPlay {
 			Debug.Log("Agreed");
 			InventoryImageClick(selectedItemIndexInInventory);
 			Debug.Log(selectedItemIndexInInventory);
-			if (selectedItemIndexInInventory == 4)
+			if (selectedItemIndexInInventory == 2)
 			{
-				rewardableItems[0].icon = itemSpritesAfterAd[0];
-				selectedItem.texture = rewardableItems[0].icon;
-				itm.icon = rewardableItems[0].icon;
+				//rewardableItems[0].icon = itemSpritesAfterAd[0];
+				//selectedItem.texture = rewardableItems[0].icon;
+				//itm.icon = rewardableItems[0].icon;
 				isTNTSmallAchieved = true;
 			}
-			else if (selectedItemIndexInInventory == 5)
+			else if (selectedItemIndexInInventory == 3)
 			{
-				rewardableItems[1].icon = itemSpritesAfterAd[1];
-				selectedItem.texture = rewardableItems[1].icon;
-				itm.icon = rewardableItems[1].icon;
+				//rewardableItems[1].icon = itemSpritesAfterAd[1];
+				//selectedItem.texture = rewardableItems[1].icon;
+				//itm.icon = rewardableItems[1].icon;
 				isTNTMediumAchieved = true;
 			}
-			else if (selectedItemIndexInInventory == 6)
+			else if (selectedItemIndexInInventory == 4)
 			{
-				rewardableItems[1].icon = itemSpritesAfterAd[1];
-				selectedItem.texture = rewardableItems[1].icon;
-				itm.icon = rewardableItems[1].icon;
+				//rewardableItems[1].icon = itemSpritesAfterAd[1];
+				//selectedItem.texture = rewardableItems[1].icon;
+				//itm.icon = rewardableItems[1].icon;
 				isTNTLargeAchieved = true;
 			}
-			else if (selectedItemIndexInInventory == 31)
+			else if (selectedItemIndexInInventory == 29)
 			{
-				rewardableVoxels[0].textureSide = voxelSpritesAfterAd[0];
-				selectedItem.texture = rewardableVoxels[0].textureSide;
-				itm.icon = rewardableVoxels[0].textureSide;
+				//rewardableVoxels[0].textureSide = voxelSpritesAfterAd[0];
+				//selectedItem.texture = rewardableVoxels[0].textureSide;
+				//itm.icon = rewardableVoxels[0].textureSide;
 				isLeaves2Achieved = true;
 			}
-			else if (selectedItemIndexInInventory == 47)
+			else if (selectedItemIndexInInventory == 45)
 			{
-				rewardableVoxels[1].textureSide = voxelSpritesAfterAd[1];
-				selectedItem.texture = rewardableVoxels[1].textureSide;
-				itm.icon = rewardableVoxels[1].textureSide;
+				//rewardableVoxels[1].textureSide = voxelSpritesAfterAd[1];
+				//selectedItem.texture = rewardableVoxels[1].textureSide;
+				//itm.icon = rewardableVoxels[1].textureSide;
 				isLeaves3Achieved = true;
 			}
-			else if (selectedItemIndexInInventory == 48)
+			else if (selectedItemIndexInInventory == 46)
 			{
-				rewardableVoxels[2].textureSide = voxelSpritesAfterAd[2];
-				selectedItem.texture = rewardableVoxels[2].textureSide;
-				itm.icon = rewardableVoxels[2].textureSide;
+				//rewardableVoxels[2].textureSide = voxelSpritesAfterAd[2];
+				//selectedItem.texture = rewardableVoxels[2].textureSide;
+				//itm.icon = rewardableVoxels[2].textureSide;
 				isBrickWallAchieved = true;
 			}
-			else if (selectedItemIndexInInventory == 53)
+			else if (selectedItemIndexInInventory == 51)
 			{
-				rewardableVoxels[3].textureSide = voxelSpritesAfterAd[3];
-				selectedItem.texture = rewardableVoxels[3].textureSide;
-				itm.icon = rewardableVoxels[3].textureSide;
+				//rewardableVoxels[3].textureSide = voxelSpritesAfterAd[3];
+				//selectedItem.texture = rewardableVoxels[3].textureSide;
+				//itm.icon = rewardableVoxels[3].textureSide;
 				isSviborgAchieved = true;
 			}
 			else if (selectedItemIndexInInventory == 122)
 			{
-				rewardableVoxels[4].textureSide = voxelSpritesAfterAd[4];
-				selectedItem.texture = rewardableVoxels[4].textureSide;
-				itm.icon = rewardableVoxels[4].textureSide;
+				//rewardableVoxels[4].textureSide = voxelSpritesAfterAd[4];
+				//selectedItem.texture = rewardableVoxels[4].textureSide;
+				//itm.icon = rewardableVoxels[4].textureSide;
 				isCrimsonBoardsAchieved = true;
 			}
-			else if (selectedItemIndexInInventory == 137)
+			else if (selectedItemIndexInInventory == 135)
 			{
-				rewardableVoxels[5].textureSide = voxelSpritesAfterAd[5];
-				selectedItem.texture = rewardableVoxels[5].textureSide;
-				itm.icon = rewardableVoxels[5].textureSide;
+				//rewardableVoxels[5].textureSide = voxelSpritesAfterAd[5];
+				//selectedItem.texture = rewardableVoxels[5].textureSide;
+				//itm.icon = rewardableVoxels[5].textureSide;
 				isAmethystAchieved = true;
+			}
+			else if (selectedItemIndexInInventory == 147)
+			{
+				//rewardableVoxels[6].textureSide = voxelSpritesAfterAd[6];
+				//selectedItem.texture = rewardableVoxels[6].textureSide;
+				//itm.icon = rewardableVoxels[6].textureSide;
+				isLapisAchieved = true;
+			}
+			else if (selectedItemIndexInInventory == 148)
+			{
+				//rewardableVoxels[7].textureSide = voxelSpritesAfterAd[7];
+				//selectedItem.texture = rewardableVoxels[7].textureSide;
+				//itm.icon = rewardableVoxels[7].textureSide;
+				isLimeWoolAchieved = true;
 			}
 			else if (selectedItemIndexInInventory == 149)
 			{
-				rewardableVoxels[6].textureSide = voxelSpritesAfterAd[6];
-				selectedItem.texture = rewardableVoxels[6].textureSide;
-				itm.icon = rewardableVoxels[6].textureSide;
-				isLapisAchieved = true;
-			}
-			else if (selectedItemIndexInInventory == 150)
-			{
-				rewardableVoxels[7].textureSide = voxelSpritesAfterAd[7];
-				selectedItem.texture = rewardableVoxels[7].textureSide;
-				itm.icon = rewardableVoxels[7].textureSide;
-				isLimeWoolAchieved = true;
-			}
-			else if (selectedItemIndexInInventory == 151)
-			{
-				rewardableVoxels[8].textureSide = voxelSpritesAfterAd[8];
-				selectedItem.texture = rewardableVoxels[8].textureSide;
-				itm.icon = rewardableVoxels[8].textureSide;
+				//rewardableVoxels[8].textureSide = voxelSpritesAfterAd[8];
+				//selectedItem.texture = rewardableVoxels[8].textureSide;
+				//itm.icon = rewardableVoxels[8].textureSide;
 				isRawGoldAchieved = true;
 			}
-			else if (selectedItemIndexInInventory == 155)
+			else if (selectedItemIndexInInventory == 15)
 			{
-				rewardableVoxels[9].textureSide = voxelSpritesAfterAd[9];
-				selectedItem.texture = rewardableVoxels[9].textureSide;
-				itm.icon = rewardableVoxels[9].textureSide;
+				//rewardableVoxels[9].textureSide = voxelSpritesAfterAd[9];
+				//selectedItem.texture = rewardableVoxels[9].textureSide;
+				//itm.icon = rewardableVoxels[9].textureSide;
 				isLightGrayWoolAchieved = true;
 			}
 			else if (selectedItemIndexInInventory == 157)
 			{
-				rewardableVoxels[10].textureSide = voxelSpritesAfterAd[10];
-				selectedItem.texture = rewardableVoxels[10].textureSide;
-				itm.icon = rewardableVoxels[10].textureSide;
+				//rewardableVoxels[10].textureSide = voxelSpritesAfterAd[10];
+				//selectedItem.texture = rewardableVoxels[10].textureSide;
+				//itm.icon = rewardableVoxels[10].textureSide;
 				isGrayWoolAchieved = true;
 			}
 
 			isAgreedWithRewardNotification = true;
-			//sdk.ShowRewarded("block");
+			sdk.ShowRewarded("block");
 			adNotificator.SetActive(false);
 			ToggleInventoryVisibility(false);
 			EnableCursor(false);
