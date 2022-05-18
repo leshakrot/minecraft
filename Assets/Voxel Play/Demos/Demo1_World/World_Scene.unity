@@ -434,7 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fxRoot: {fileID: 0}
   particlePoolSize: 1000
-  voxelDefinitionsCount: 114
+  voxelDefinitionsCount: 26
   enableURP: 0
   world: {fileID: 11400000, guid: 9c8445380140245d0b4806a2ee8972b6, type: 2}
   enableBuildMode: 1
@@ -742,10 +742,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de021268ccca64c78bb7eb2f3d7acdf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  voxelSpritesBeforeAd:
+  - {fileID: 2800000, guid: 8a86b43d8fa207349b25502b3739e4bc, type: 3}
+  - {fileID: 2800000, guid: e25277940ec63e34e986c5c8b389be94, type: 3}
+  - {fileID: 2800000, guid: 9880bcc23b7413d4182871bb243f32fb, type: 3}
+  - {fileID: 2800000, guid: 20e4771fa08f87943ba85bf4165a9a17, type: 3}
+  - {fileID: 2800000, guid: 7a6a226df0c721143acbf9a6d218879f, type: 3}
+  - {fileID: 2800000, guid: 0157027fe73d1f24fb4d1d1d0ea5b477, type: 3}
+  - {fileID: 2800000, guid: ae91f5a5ea368eb429362ad914e2d54f, type: 3}
+  - {fileID: 2800000, guid: 5ee2605b61e9d8440b69d4103b4e9f9e, type: 3}
+  - {fileID: 2800000, guid: ebe298e9438794240afc7879e0b6bac1, type: 3}
+  - {fileID: 2800000, guid: 5ac182a0937d5d94198317fb2ceba6f2, type: 3}
+  - {fileID: 2800000, guid: 97bee750c46642140bb82626ff2f4480, type: 3}
+  voxelSpritesAfterAd:
+  - {fileID: 2800000, guid: e805cb5fe5b001d4ca9a111ee98574a1, type: 3}
+  - {fileID: 2800000, guid: 4aa73e1e3f1c7b343967737ef775841e, type: 3}
+  - {fileID: 2800000, guid: acd7c611f7bc3eb4ab5655f1738a0ecf, type: 3}
+  - {fileID: 2800000, guid: 1f2fc215b61817b40849f4b0884f61ab, type: 3}
+  - {fileID: 2800000, guid: d64f6ae583f886840bc9c593baeccf33, type: 3}
+  - {fileID: 2800000, guid: 6cff7ea980f334f44ad32da2ea4f547f, type: 3}
+  - {fileID: 2800000, guid: 2a5ad02c696b66c4a9fefdf7c1dede32, type: 3}
+  - {fileID: 2800000, guid: 6bebbc535a9dec0498eca03f899157cf, type: 3}
+  - {fileID: 2800000, guid: e8160d3b68d49eb4f8fda252d97b0847, type: 3}
+  - {fileID: 2800000, guid: 08aa85c94cf3107469f0a3ccfcab5481, type: 3}
+  - {fileID: 2800000, guid: dd158df3ff2dd0646aa2a91066ad11d7, type: 3}
+  itemSpritesBeforeAd:
+  - {fileID: 2800000, guid: 4a0e5c0492bd4e04399070db071bce53, type: 3}
+  - {fileID: 2800000, guid: e50c895d8a6654746bfc52f91ee61775, type: 3}
+  - {fileID: 2800000, guid: 677b53e9e3741ea40bafe554f167d769, type: 3}
+  itemSpritesAfterAd:
+  - {fileID: 2800000, guid: 451b7f4e53955854a98f8e427656bffc, type: 3}
+  - {fileID: 2800000, guid: 451b7f4e53955854a98f8e427656bffc, type: 3}
+  - {fileID: 2800000, guid: 451b7f4e53955854a98f8e427656bffc, type: 3}
+  rewardableVoxels:
+  - {fileID: 11400000, guid: ecdb2e279e133394f88c7ed0e31c7af5, type: 2}
+  - {fileID: 11400000, guid: efac73a350f453140963bfddf9a406d6, type: 2}
+  - {fileID: 11400000, guid: aaa3fa1e37bd3468ebc9dd05dd16f553, type: 2}
+  - {fileID: 11400000, guid: 4c809d5343149417797aeb8935acd105, type: 2}
+  - {fileID: 11400000, guid: 2de19a68cce35c142b1031a1a2c747db, type: 2}
+  - {fileID: 11400000, guid: a67e920a224d246e09e89e97178996b2, type: 2}
+  - {fileID: 11400000, guid: 16fded76c0773b049a592b9597e4354d, type: 2}
+  - {fileID: 11400000, guid: 68298ff942afc384aa0d4b6164265a37, type: 2}
+  - {fileID: 11400000, guid: ee3d5f522045eed478f9ba78e43282fc, type: 2}
+  - {fileID: 11400000, guid: b897bfca418e31c469354a2ce2609da8, type: 2}
+  - {fileID: 11400000, guid: aebf8e1790c67694ea5f2b3d0b000339, type: 2}
+  rewardableItems:
+  - {fileID: 11400000, guid: 334c6a5209fb3468dbdc749d0414a67b, type: 2}
+  - {fileID: 11400000, guid: 6683a15c675b738449379879dad4b257, type: 2}
+  - {fileID: 11400000, guid: 173d9e51ec16ffa4eb115e1bae0d720f, type: 2}
   adNotificator: {fileID: 690096442}
   fpsController: {fileID: 963791721}
-  icons:
-  - {fileID: 2800000, guid: ffd6594e1f6d4bb4caf6b1061db976f5, type: 3}
   _inventoryRows: 6
   _inventoryColumns: 10
 --- !u!114 &166871899
@@ -6446,7 +6492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31936818, g: 0.7205882, b: 0.24372838, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
